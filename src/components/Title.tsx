@@ -1,5 +1,10 @@
 import React from 'react';
+import { styled } from 'gatsby-theme-stitches/src/stitches.config';
 
-const Title: React.FC = () => <h1>Hello TypeScript!</h1>;
+const Header = styled('h1', {
+  color: '$red500',
+});
+
+const Title: React.FC = () => <Header>Hello TypeScript!</Header>;
 
 export default Title;

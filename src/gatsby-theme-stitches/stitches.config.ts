@@ -1,13 +1,15 @@
 import { createCss } from '@stitches/react';
 
-export const { styled, css } = createCss({
+export const { styled, css, theme } = createCss({
   theme: {
     colors: {
-      gray500: 'hsl(206,10%,76%)',
-      blue500: 'hsl(206,100%,50%)',
-      purple500: 'hsl(252,78%,60%)',
-      green500: 'hsl(148,60%,60%)',
-      red500: 'hsl(352,100%,62%)',
+      blue500: '#0077CC',
+      blue700: '#000000',
+      red400: 'tomato',
+      red500: 'red',
+      // Alias
+      primary: '$blue500',
+      primaryDark: '$blue700',
     },
     space: {
       1: '5px',
@@ -34,4 +36,13 @@ export const { styled, css } = createCss({
     zIndices: {},
     transitions: {},
   },
+});
+
+export const dark = theme('dark-mode', {
+  colors: {
+    primary: '$red500',
+    secondary: '$blue700',
+  },
+  space: {},
+  fonts: {},
 });

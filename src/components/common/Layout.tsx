@@ -1,17 +1,27 @@
 import React from 'react';
-import { styled } from 'gatsby-theme-stitches/src/stitches.config';
+import { global } from '@stitches/react';
 import Header from '@/components/common/Header/Header';
 
-const Wrapper = styled('main', {
-  margin: '0',
-  padding: '0',
+const globalStyles = global({
+  body: {
+    margin: '0',
+    padding: '0',
+  },
+
+  a: {
+    textDecoration: 'none',
+    color: '$primary',
+  },
 });
 
-const Layout: React.FC = ({ children }) => (
-  <Wrapper>
-    <Header />
-    {children}
-  </Wrapper>
-);
+const Layout: React.FC = ({ children }) => {
+  globalStyles();
+  return (
+    <>
+      <Header />
+      {children}
+    </>
+  );
+};
 
 export default Layout;

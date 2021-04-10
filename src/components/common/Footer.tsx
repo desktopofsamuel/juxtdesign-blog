@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
-import Container from 'components/common/Container';
+import Container from '@/components/common/Container';
 import GatsbyLink from './GatsbyLink';
 
 const FooterContainer = styled('footer', {

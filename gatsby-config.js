@@ -38,7 +38,7 @@ module.exports = {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: 'dojo2',
-        accessToken: process.env.API_KEY,
+        accessToken: process.env.PRISMIC_API,
         // lang: "zh-hk",
         schemas: {
           category: require('./src/schemas/category.json'),

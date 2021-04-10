@@ -9,9 +9,13 @@ export const { styled, css, theme } = createCss({
       red500: 'red',
       green500: '#025050',
       white500: '#ffffff',
+      black: '#333333',
       // Alias
-      primary: '$blue500',
+      primary: '$black',
       secondary: '$red500',
+    },
+    transitions: {
+      default: ' 0.2s all ease-in-out',
     },
     space: {
       1: '8px',
@@ -47,7 +51,6 @@ export const { styled, css, theme } = createCss({
     radii: {},
     shadows: {},
     zIndices: {},
-    transitions: {},
   },
   media: {
     sm: '(max-width: 480px)',

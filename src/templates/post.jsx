@@ -78,11 +78,6 @@ export default class PostTemplate extends React.Component {
             </small>
             <MDXRenderer>{postNode.body}</MDXRenderer>
             {/* <Row>
-              {post.url ? (
-                <Button href={post.url} target="_blank" text="Visit Now" />
-              ) : null}
-            </Row> */}
-            {/* <Row>
               <div className="post-meta">
                 <PostTags tags={post.tags} />
               </div>

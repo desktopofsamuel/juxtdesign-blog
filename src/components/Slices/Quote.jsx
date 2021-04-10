@@ -1,5 +1,4 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
 
 const Quote = ({ input }) => (
   <blockquote>
@@ -8,7 +7,3 @@ const Quote = ({ input }) => (
 );
 
 export default Quote;
-
-Quote.propTypes = {
-  input: PropTypes.object.isRequired,
-};

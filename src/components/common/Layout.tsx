@@ -15,7 +15,7 @@ const globalStyles = global({
 });
 
 const Layout: React.FC = ({ children }) => {
-  globalStyles();
+  // globalStyles();
   return (
     <>
       <Header />

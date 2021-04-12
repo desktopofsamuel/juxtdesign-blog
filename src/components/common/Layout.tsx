@@ -1,9 +1,14 @@
 import React from 'react';
-import { global } from '@stitches/react';
+import { global } from 'gatsby-theme-stitches/src/stitches.config';
 import Header from '@/components/common/Header/Header';
+import '../../../static/typography.css';
 
 const globalStyles = global({
-  body: {
+  html: {
+    fontFamily: '$sans',
+    fontWeight: '$regular',
+    fontSize: '$3',
+    lineHeight: '$regular',
     margin: '0',
     padding: '0',
   },
@@ -15,12 +20,12 @@ const globalStyles = global({
 });
 
 const Layout: React.FC = ({ children }) => {
-  // globalStyles();
+  globalStyles();
   return (
-    <>
+    <main>
       <Header />
       {children}
-    </>
+    </main>
   );
 };
 

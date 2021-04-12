@@ -1,15 +1,26 @@
 import { createCss } from '@stitches/react';
 
-export const { styled, css, theme } = createCss({
+export const {
+  styled,
+  css,
+  global,
+  keyframes,
+  getCssString,
+  theme,
+} = createCss({
   theme: {
     colors: {
+      // Token
       blue500: '#0077CC',
       blue700: '#000000',
       red400: 'tomato',
       red500: 'red',
+      red700: 'pink',
+      green100: '#F1F9F8',
       green500: '#025050',
       white500: '#ffffff',
       black: '#333333',
+      transparent: 'rgba(0,0,0,0)',
       // Alias
       primary: '$black',
       secondary: '$red500',
@@ -18,7 +29,7 @@ export const { styled, css, theme } = createCss({
       default: ' 0.2s all ease-in-out',
     },
     space: {
-      1: '8px',
+      1: '4px',
       2: '16px',
       3: '24px',
       4: '48px',
@@ -34,16 +45,18 @@ export const { styled, css, theme } = createCss({
       6: '48px',
     },
     fonts: {
-      sans: 'Roboto, apple-system, Helvetica, Arial, sans-serif',
+      sans: 'HK Grotesk, apple-system, Helvetica, Arial, sans-serif',
       serif: 'Calibre, Georgia, serif',
       mono:
         'Georgia, IBM Plex Mono, Courier, Menlo, Consolas, Monaco, Lucida Console, monospace',
     },
     fontWeights: {
-      regular: '400',
+      regular: '500',
       bold: '700',
     },
-    lineHeights: {},
+    lineHeights: {
+      regular: '1.5',
+    },
     letterSpacings: {},
     sizes: {},
     borderWidths: {},
@@ -59,11 +72,16 @@ export const { styled, css, theme } = createCss({
   },
 });
 
-export const dark = theme('dark-mode', {
+export const light = theme('light-theme', {
   colors: {
-    primary: '$red500',
+    primary: '$black',
     secondary: '$blue700',
   },
-  space: {},
-  fonts: {},
+});
+
+export const dark = theme('dark-theme', {
+  colors: {
+    primary: '$red700',
+    secondary: '$blue500',
+  },
 });

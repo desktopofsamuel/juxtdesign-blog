@@ -6,9 +6,9 @@ import startCase from 'lodash.startcase';
 import Layout from '@/components/common/Layout';
 import Container from '@/components/common/Container';
 import AppList from '@/components/AppList';
+import BlogList from '@/components/BlogList';
+import { PageTitle, Subheading } from '@/components/common/TextStyles';
 import config from '../../static/SiteConfig';
-// import PostListing from "../components/PostListing/PostListing";
-
 // import SEO from "../components/SEO/SEO";
 
 const Row = styled('section', {
@@ -18,12 +18,8 @@ const Row = styled('section', {
 const AppGridRow = styled('section', {
   display: 'grid',
   gridTemplate: 'auto/repeat(12, 1fr)',
-  gridRowGap: '$3',
+  gridRowGap: '$1',
   gridColumnGap: '$3',
-
-  '@md': {
-    display: 'block',
-  },
 });
 
 const Header = styled('div', {
@@ -42,11 +38,10 @@ const Heading = styled('h1', {
 
 const Subtitle = styled('p', {
   fontSize: '$4',
-});
 
-const SubHeading = styled('small', {
-  marginBottom: '$2',
-  color: '$blue500',
+  '@md': {
+    fontSize: '$3',
+  },
 });
 
 const TagTemplate = ({ pageContext, data }) => {
@@ -64,19 +59,27 @@ const TagTemplate = ({ pageContext, data }) => {
           description={description}
         /> */}
         <Header>
-          <SubHeading>Topic</SubHeading>
-          <Heading>{StartCase}</Heading>
+          <Subheading>Topic</Subheading>
+          <PageTitle>{StartCase}</PageTitle>
           <Subtitle>{description}</Subtitle>
         </Header>
         <hr />
         <Row>
-          {!!blogEdges[0] && <SubHeading>Articles</SubHeading>}
-          {/* <PostListing postEdges={blogEdges} /> */}
+          {!!blogEdges[0] && <Subheading>Articles</Subheading>}
+          <BlogList posts={blogEdges} />
         </Row>
         <Row>
-          {!!appEdges[0] && <SubHeading>Apps</SubHeading>}
+          {!!appEdges[0] && <Subheading>Apps</Subheading>}
           <AppGridRow>
-            <AppList posts={appEdges} />
+            <AppList
+              css={{
+                gridColumn: 'span 3',
+                '@lg': { gridColumn: 'span 4' },
+                '@md': { gridColumn: 'span 6' },
+                '@sm': { gridColumn: 'span 12' },
+              }}
+              posts={appEdges}
+            />
           </AppGridRow>
         </Row>
       </Container>

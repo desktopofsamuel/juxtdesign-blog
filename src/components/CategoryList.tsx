@@ -10,27 +10,44 @@ const Wrapper = styled('aside', {
 });
 
 const Item = styled(Link, {
-  border: '1px $blue500 solid',
-  padding: '0.5rem 1rem',
+  color: '$primary',
+  textDecoration: 'none',
+  transition: '$default',
+  padding: '$2 $3',
   marginBottom: '16px',
-  borderRadius: '24px',
+  borderRight: '4px $transparent solid',
 
   '&:hover': {
-    border: '1px $blue500 solid',
-    backgroundColor: '$white500',
+    backgroundColor: '$green100',
+    borderRight: '4px $green500 solid',
   },
 });
 
 const CategoryItem = ({ categoryNode }) => (
-  <Item to={`/tags/${kebabCase(categoryNode.node.uid)}`}>
+  <Item
+    to={`/tags/${kebabCase(categoryNode.node.uid)}`}
+    key={categoryNode.node.data.name}
+    target="_blank"
+  >
     {categoryNode.node.data.name}
   </Item>
 );
 
-const CategoryList = ({ categories }) => (
+type CategoryType = {
+  categories: {
+    node: {
+      uid: string;
+      data: {
+        name: string;
+      };
+    };
+  };
+};
+
+const CategoryList = ({ categories }: CategoryType) => (
   <Wrapper>
     {categories.map((post) => (
-      <CategoryItem categoryNode={post} />
+      <CategoryItem key={post.node.uid} categoryNode={post} />
     ))}
   </Wrapper>
 );

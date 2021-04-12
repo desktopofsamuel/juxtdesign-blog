@@ -5,9 +5,6 @@ import { BodyText, CodeBlock, Image, Quote } from './Slices';
 
 const Content = styled('div', {
   padding: '$2 0',
-  'p, li': {
-    fontSize: '$2',
-  },
 });
 
 // font-size: 16px;

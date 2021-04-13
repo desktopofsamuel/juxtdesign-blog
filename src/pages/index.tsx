@@ -68,7 +68,7 @@ const Landing = ({ data }: IndexPageProps) => {
           </Block>
           {console.log(app.edges)}
           <AppListWrapper>
-            <AppList posts={app.edges} />
+            <AppList posts={app.edges} category />
           </AppListWrapper>
 
           <BlogList posts={blog.edges} />

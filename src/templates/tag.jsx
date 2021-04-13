@@ -18,8 +18,7 @@ const Row = styled('section', {
 const AppGridRow = styled('section', {
   display: 'grid',
   gridTemplate: 'auto/repeat(12, 1fr)',
-  gridRowGap: '$1',
-  gridColumnGap: '$3',
+  gridGap: '$3',
 });
 
 const Header = styled('div', {
@@ -72,6 +71,7 @@ const TagTemplate = ({ pageContext, data }) => {
           {!!appEdges[0] && <Subheading>Apps</Subheading>}
           <AppGridRow>
             <AppList
+              type
               css={{
                 gridColumn: 'span 3',
                 '@lg': { gridColumn: 'span 4' },

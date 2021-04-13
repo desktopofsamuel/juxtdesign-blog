@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
 import { BodyText, CodeBlock, Image, Quote } from './Slices';
 
-const Content = styled('div', {
-  padding: '$2 0',
-});
+const Content = styled('div', {});
 
 // font-size: 16px;
 // line-height: 26px;

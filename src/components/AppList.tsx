@@ -9,8 +9,7 @@ const ListItem = styled('div', {
   background: '$white500',
   transition: '$default',
   overflow: 'hidden',
-  margin: '$2 0',
-  border: '1px $black solid',
+  border: '2px $lightgrey solid',
 
   '&:hover': {
     boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.1)',
@@ -21,13 +20,13 @@ const Title = styled(ResourceTitle, {});
 
 const ContentWrapper = styled('div', {
   padding: '$2',
-  color: '$primary',
+  color: '$darkgrey',
   textDecoration: 'none',
 });
 
 // const Category = styled('p', {});
 
-const AppList = ({ posts, css }) => (
+const AppList = ({ posts, css, category, type }) => (
   <>
     {posts.map((post) => (
       <ListItem key={post.node.uid} css={css}>
@@ -40,11 +39,21 @@ const AppList = ({ posts, css }) => (
             />
           ) : null}
           <ContentWrapper>
-            {post.node.data.types.document ? (
-              <ResourceType>
-                {post.node.data.types.document.data.name}
-              </ResourceType>
+            {type ? (
+              post.node.data.types.document ? (
+                <ResourceType>
+                  {post.node.data.types.document.data.name}
+                </ResourceType>
+              ) : null
             ) : null}
+            {category ? (
+              post.node.data.categories[0].category.document ? (
+                <ResourceType>
+                  {post.node.data.categories[0].category.document.data.name}
+                </ResourceType>
+              ) : null
+            ) : null}
+
             {/* <Category>{post.node.data.categories.category}</Category> */}
             <Title>{post.node.data.title.text}</Title>
             <SliceZone allSlices={post.node.data.body} />

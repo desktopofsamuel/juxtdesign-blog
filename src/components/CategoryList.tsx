@@ -13,7 +13,7 @@ const Item = styled(Link, {
   color: '$primary',
   textDecoration: 'none',
   transition: '$default',
-  padding: '$2 $3',
+  padding: '$2 0',
   marginBottom: '16px',
   borderRight: '4px $transparent solid',
 

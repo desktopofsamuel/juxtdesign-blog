@@ -11,18 +11,21 @@ export const {
   theme: {
     colors: {
       // Token
-      blue500: '#0077CC',
-      blue700: '#000000',
+      blue300: '#0077CC',
+      blue500: '#3C4F68',
+      blue700: '#253141',
       red400: 'tomato',
       red500: 'red',
       red700: 'pink',
       green100: '#F1F9F8',
       green500: '#025050',
       white500: '#ffffff',
+      lightgrey: '#E5EAF0',
+      darkgrey: '#253141',
       black: '#333333',
       transparent: 'rgba(0,0,0,0)',
       // Alias
-      primary: '$black',
+      primary: '$blue700',
       secondary: '$red500',
     },
     transitions: {

@@ -1,6 +1,6 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const path = require('path');
-const _ = require('lodash');
+const kebabCase = require('lodash.kebabcase');
 const moment = require('moment');
 const siteConfig = require('./static/SiteConfig');
 
@@ -16,7 +16,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
       Object.prototype.hasOwnProperty.call(node.frontmatter, 'title')
     ) {
-      slug = `/${_.kebabCase(node.frontmatter.title)}`;
+      slug = `/${kebabCase(node.frontmatter.title)}`;
     } else if (parsedFilePath.name !== 'index' && parsedFilePath.dir !== '') {
       slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
     } else if (parsedFilePath.dir === '') {
@@ -27,7 +27,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
     if (Object.prototype.hasOwnProperty.call(node, 'frontmatter')) {
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug'))
-        slug = `/${_.kebabCase(node.frontmatter.slug)}`;
+        slug = `/${kebabCase(node.frontmatter.slug)}`;
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'date')) {
         const date = moment(node.frontmatter.date, siteConfig.dateFromFormat);
         if (!date.isValid)
@@ -44,7 +44,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   // const defaultPage = path.resolve('src/templates/default.jsx');
-  const postPage = path.resolve('src/templates/post.jsx');
+  const postPage = path.resolve('src/templates/post.tsx');
   const tagPage = path.resolve('src/templates/tag.jsx');
   const categoryPage = path.resolve('src/templates/category.jsx');
   // const listingPage = path.resolve('./src/templates/listing.jsx');
@@ -175,25 +175,25 @@ exports.createPages = async ({ graphql, actions }) => {
   //  Create tag pages
   tagSet.forEach((tag) => {
     createPage({
-      path: `/tags/${_.kebabCase(tag)}/`,
+      path: `/tags/${kebabCase(tag)}/`,
       component: tagPage,
       context: { tag },
     });
   });
 
   // Create category pages
-  categorySet.forEach((category) => {
-    createPage({
-      path: `/categories/${_.kebabCase(category)}/`,
-      component: categoryPage,
-      context: { category },
-    });
-  });
+  // categorySet.forEach((category) => {
+  //   createPage({
+  //     path: `/categories/${kebabCase(category)}/`,
+  //     component: categoryPage,
+  //     context: { category },
+  //   });
+  // });
 
   // Create category pages for Tags
   PrismicCategorySet.forEach((edge) => {
     createPage({
-      path: `/tags/${_.kebabCase(edge.node.uid)}/`,
+      path: `/tags/${kebabCase(edge.node.uid)}/`,
       component: tagPage,
       context: { tag: edge.node.uid },
     });

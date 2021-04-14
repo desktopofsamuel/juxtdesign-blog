@@ -1,10 +1,7 @@
 import React from 'react';
 import { PageProps, graphql } from 'gatsby';
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
-import Title from '@/components/Title';
-import Header from '@/components/common/Header/Header';
 import Container from '@/components/common/Container';
-import Footer from '@/components/common/Footer';
 import Layout from '@/components/common/Layout';
 import AppList from '@/components/AppList';
 import CategoryList from '@/components/CategoryList';
@@ -66,16 +63,14 @@ const Landing = ({ data }: IndexPageProps) => {
             <Subheading>Categories</Subheading>
             <CategoryList categories={category.edges} />
           </Block>
-          {console.log(app.edges)}
+
           <AppListWrapper>
             <AppList posts={app.edges} category />
           </AppListWrapper>
 
           <BlogList posts={blog.edges} />
-          {console.log(blog.edges)}
         </Row>
       </Container>
-      <Footer />
     </Layout>
   );
 };
@@ -100,90 +95,14 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          uid
-          data {
-            feature {
-              url
-              fluid {
-                ...GatsbyPrismicImageFluid
-              }
-            }
-            title {
-              text
-            }
-            url {
-              url
-            }
-            body {
-              ... on PrismicPostBodyText {
-                slice_type
-                id
-                primary {
-                  text {
-                    html
-                  }
-                }
-              }
-            }
-            date(formatString: "DD.MM.YYYY")
-            categories {
-              category {
-                document {
-                  ... on PrismicCategory {
-                    uid
-                    id
-                    data {
-                      name
-                    }
-                  }
-                }
-              }
-            }
-            types {
-              document {
-                ... on PrismicType {
-                  id
-                  data {
-                    name
-                    icon {
-                      fluid {
-                        ...GatsbyPrismicImageFluid
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+          ...app
         }
       }
     }
     blog: allMdx(sort: { order: DESC, fields: frontmatter___date }) {
       edges {
         node {
-          timeToRead
-          excerpt
-          frontmatter {
-            title
-            date(formatString: "MMM DD, YYYY", locale: "en")
-            category
-            tags
-            featurePhoto {
-              childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH)
-              }
-            }
-          }
-          fields {
-            slug
-            date
-            template
-          }
-          headings {
-            depth
-            value
-          }
-          tableOfContents
+          ...post
         }
       }
     }

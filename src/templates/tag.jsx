@@ -111,61 +111,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          uid
-          data {
-            feature {
-              url
-              fluid {
-                ...GatsbyPrismicImageFluid
-              }
-            }
-            title {
-              text
-            }
-            url {
-              url
-            }
-            body {
-              ... on PrismicPostBodyText {
-                slice_type
-                id
-                primary {
-                  text {
-                    html
-                  }
-                }
-              }
-            }
-            date(formatString: "DD.MM.YYYY")
-            categories {
-              category {
-                document {
-                  ... on PrismicCategory {
-                    uid
-                    id
-                    data {
-                      name
-                    }
-                  }
-                }
-              }
-            }
-            types {
-              document {
-                ... on PrismicType {
-                  id
-                  data {
-                    name
-                    icon {
-                      fluid {
-                        ...GatsbyPrismicImageFluid
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+          ...app
         }
       }
     }
@@ -177,22 +123,7 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
-          fields {
-            slug
-            date
-          }
-          excerpt
-          timeToRead
-          frontmatter {
-            title
-            tags
-            featurePhoto {
-              childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH)
-              }
-            }
-            date
-          }
+          ...list
         }
       }
     }

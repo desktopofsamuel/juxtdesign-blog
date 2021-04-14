@@ -5,14 +5,14 @@ export const listFragment = graphql`
     fields {
       slug
       date
-      template
     }
     timeToRead
     frontmatter {
       title
-      tags
       date
-      url
+      category
+      tags
+      feature
       featurePhoto {
         childImageSharp {
           gatsbyImageData(layout: FULL_WIDTH)

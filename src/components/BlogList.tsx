@@ -11,12 +11,16 @@ const Article = styled(Link, {
   gridRow: 'span 3',
 });
 
-const BlogList = ({ posts }) => (
+const BlogList = ({ posts, css }) => (
   <>
     {
       /* Your post list here. */
       posts.map((post) => (
-        <Article to={post.node.fields.slug} key={post.node.fields.slug}>
+        <Article
+          to={post.node.fields.slug}
+          key={post.node.fields.slug}
+          css={css}
+        >
           <ResourceTitle>{post.node.frontmatter.title}</ResourceTitle>
           <Paragraph>{post.node.excerpt}</Paragraph>
         </Article>

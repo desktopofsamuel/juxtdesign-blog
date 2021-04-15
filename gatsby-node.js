@@ -182,13 +182,13 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // Create category pages
-  // categorySet.forEach((category) => {
-  //   createPage({
-  //     path: `/categories/${kebabCase(category)}/`,
-  //     component: categoryPage,
-  //     context: { category },
-  //   });
-  // });
+  categorySet.forEach((category) => {
+    createPage({
+      path: `/categories/${kebabCase(category)}/`,
+      component: categoryPage,
+      context: { category },
+    });
+  });
 
   // Create category pages for Tags
   PrismicCategorySet.forEach((edge) => {

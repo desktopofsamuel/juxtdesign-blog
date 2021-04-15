@@ -39,3 +39,26 @@ export const Paragraph = styled('p', {
   fontWeight: '$regular',
   color: '$primary',
 });
+
+export const PageMetadata = styled('p', {
+  margin: '0',
+  fontSize: '$3',
+  fontFamily: '$sans',
+  fontWeight: '$regular',
+  color: '$secondary',
+
+  variants: {
+    weight: {
+      bold: {
+        fontWeight: '$bold',
+      },
+      regular: {
+        fontWeight: '$regular',
+      },
+    },
+  },
+
+  defaultVariants: {
+    weight: 'regular',
+  },
+});

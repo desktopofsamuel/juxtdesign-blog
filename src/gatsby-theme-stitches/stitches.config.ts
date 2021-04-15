@@ -14,6 +14,7 @@ export const {
       blue300: '#0077CC',
       blue500: '#3C4F68',
       blue700: '#253141',
+      rice500: '#F9F5F1',
       red400: 'tomato',
       red500: 'red',
       red700: 'pink',
@@ -22,7 +23,7 @@ export const {
       white500: '#ffffff',
       lightgrey: '#E5EAF0',
       darkgrey: '#253141',
-      black: '#333333',
+      black: '#272D2D',
       transparent: 'rgba(0,0,0,0)',
       // Alias
       primary: '$blue700',

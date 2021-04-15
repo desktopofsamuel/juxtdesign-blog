@@ -1,7 +1,7 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const path = require('path');
 const kebabCase = require('lodash.kebabcase');
-const moment = require('moment');
+const dayjs = require('dayjs');
 const siteConfig = require('./static/SiteConfig');
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -29,7 +29,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug'))
         slug = `/${kebabCase(node.frontmatter.slug)}`;
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'date')) {
-        const date = moment(node.frontmatter.date, siteConfig.dateFromFormat);
+        const date = dayjs(node.frontmatter.date, siteConfig.dateFromFormat);
         if (!date.isValid)
           console.warn(`WARNING: Invalid date.`, node.frontmatter);
 
@@ -91,15 +91,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Sort posts
   postsEdges.sort((postA, postB) => {
-    const dateA = moment(
-      postA.node.frontmatter.date,
-      siteConfig.dateFromFormat,
-    );
+    const dateA = dayjs(postA.node.frontmatter.date, siteConfig.dateFromFormat);
 
-    const dateB = moment(
-      postB.node.frontmatter.date,
-      siteConfig.dateFromFormat,
-    );
+    const dateB = dayjs(postB.node.frontmatter.date, siteConfig.dateFromFormat);
 
     if (dateA.isBefore(dateB)) return 1;
     if (dateB.isBefore(dateA)) return -1;

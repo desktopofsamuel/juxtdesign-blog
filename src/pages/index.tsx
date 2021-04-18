@@ -62,6 +62,9 @@ const Landing = ({ data }: IndexPageProps) => {
       <Helmet title={`${config.siteTitle}`} />
       <Container>
         <Row>
+          <BlogList posts={blog.edges} />
+        </Row>
+        <Row>
           <Block css={{ gridColumn: 'span 3' }}>
             <Subheading>Categories</Subheading>
             <CategoryList categories={category.edges} />
@@ -70,8 +73,6 @@ const Landing = ({ data }: IndexPageProps) => {
           <AppListWrapper>
             <AppList posts={app.edges} category />
           </AppListWrapper>
-
-          <BlogList posts={blog.edges} />
         </Row>
       </Container>
     </Layout>
@@ -102,7 +103,11 @@ export const pageQuery = graphql`
         }
       }
     }
-    blog: allMdx(sort: { order: DESC, fields: frontmatter___date }) {
+    blog: allMdx(
+      sort: { order: DESC, fields: frontmatter___date }
+      limit: 6
+      filter: { frontmatter: { category: { ne: "Learn" } } }
+    ) {
       edges {
         node {
           ...post

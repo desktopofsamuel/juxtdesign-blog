@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageProps, graphql } from 'gatsby';
-import { styled } from 'gatsby-theme-stitches/src/stitches.config';
+import { styled, dark } from 'gatsby-theme-stitches/src/stitches.config';
 import Container from '@/components/common/Container';
 import Layout from '@/components/common/Layout';
 import BlogList from '@/components/BlogList';
@@ -11,8 +11,13 @@ const Grid = styled('section', {
   gridTemplateColumns: 'repeat(12, 1fr)',
 });
 
+const Row = styled('section', {
+  backgroundColor: '$secondary',
+  padding: '$4 0',
+});
+
 const Guides: React.FC = ({ data }) => {
-  const { featureBlog, allBlog } = data;
+  const { featureBlog, allBlog, learnBlog } = data;
 
   return (
     <Layout>
@@ -20,6 +25,7 @@ const Guides: React.FC = ({ data }) => {
         <Subheading>Featured</Subheading>
         <Grid>
           <BlogList
+            showFeaturePhoto
             posts={featureBlog.edges}
             css={{
               gridColumn: 'span 6',
@@ -27,6 +33,23 @@ const Guides: React.FC = ({ data }) => {
             }}
           />
         </Grid>
+      </Container>
+      <Row>
+        <Container>
+          <Subheading>Learn</Subheading>
+          <Grid>
+            <BlogList
+              className={dark}
+              posts={learnBlog.edges}
+              css={{
+                gridColumn: 'span 6',
+                '@md': { gridColumn: 'span 12' },
+              }}
+            />
+          </Grid>
+        </Container>
+      </Row>
+      <Container>
         <Subheading>all</Subheading>
         <Grid>
           <BlogList
@@ -56,7 +79,20 @@ export const pagequery = graphql`
         }
       }
     }
-    allBlog: allMdx(sort: { order: DESC, fields: frontmatter___date }) {
+    allBlog: allMdx(
+      sort: { order: DESC, fields: frontmatter___date }
+      filter: { frontmatter: { category: { ne: "Learn" } } }
+    ) {
+      edges {
+        node {
+          ...post
+        }
+      }
+    }
+    learnBlog: allMdx(
+      sort: { order: DESC, fields: frontmatter___date }
+      filter: { frontmatter: { category: { eq: "Learn" } } }
+    ) {
       edges {
         node {
           ...post

@@ -6,10 +6,9 @@ import SliceZone from './SliceZone';
 
 const ListItem = styled('div', {
   borderRadius: '8px',
-  background: '$white500',
   transition: '$default',
   overflow: 'hidden',
-  border: '2px $lightgrey solid',
+  border: '2px $border solid',
 
   '&:hover': {
     boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.1)',
@@ -20,7 +19,6 @@ const Title = styled(ResourceTitle, {});
 
 const ContentWrapper = styled('div', {
   padding: '$2',
-  color: '$darkgrey',
   textDecoration: 'none',
 });
 

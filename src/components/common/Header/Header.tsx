@@ -14,7 +14,7 @@ const Wrapper = styled('nav', {
   placeContent: 'center center',
   alignItems: 'center',
   marginBottom: '$5',
-  borderBottom: '2px $lightgrey solid',
+  borderBottom: '2px $border solid',
 });
 
 const Logo = styled('img', {
@@ -30,7 +30,7 @@ const NavItem = styled(Link, {
   transition: 'all 0.3s ease-in-out',
 
   '&:hover': {
-    backgroundColor: '$green100',
+    backgroundColor: '$backgroundDarker',
   },
 
   '&:hover section': {
@@ -40,8 +40,8 @@ const NavItem = styled(Link, {
   },
 
   '&.nav-item-active': {
-    color: '$green500',
-    borderBottom: '2px $green500 solid',
+    color: '$primary',
+    borderBottom: '2px $primary solid',
   },
 });
 

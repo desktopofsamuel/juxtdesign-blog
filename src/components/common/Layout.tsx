@@ -12,7 +12,7 @@ const globalStyles = global({
     lineHeight: '$regular',
     margin: '0',
     padding: '0',
-    backgroundColor: '$rice500',
+    backgroundColor: '$background',
   },
 
   body: {

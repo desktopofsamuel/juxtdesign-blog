@@ -18,8 +18,8 @@ const Item = styled(Link, {
   borderRight: '4px $transparent solid',
 
   '&:hover': {
-    backgroundColor: '$green100',
-    borderRight: '4px $green500 solid',
+    backgroundColor: '$primaryLighter',
+    borderRight: '4px $primary solid',
   },
 });
 

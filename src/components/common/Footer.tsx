@@ -4,8 +4,8 @@ import Container from '@/components/common/Container';
 import GatsbyLink from './GatsbyLink';
 
 const FooterContainer = styled('footer', {
-  backgroundColor: '$green500',
-  color: '$white500',
+  backgroundColor: '$primary',
+  color: '$onPrimary',
 });
 
 const FooterGrid = styled('div', {
@@ -44,8 +44,8 @@ const Title = styled('h3', {
 const Paragraph = styled('p', {});
 
 const Link = styled(GatsbyLink, {
-  color: '$white500',
   textDecoration: 'none',
+  color: '$onPrimary',
 });
 
 const Footer: React.FC = () => (

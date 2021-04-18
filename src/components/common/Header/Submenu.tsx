@@ -5,19 +5,21 @@ import Container from '@/components/common/Container';
 const Wrapper = styled('section', {
   visibility: 'hidden',
   position: 'absolute',
-  top: '81px',
+  top: '81px', // Header Height is 80px
   left: '0',
   width: '100%',
   margin: '0 auto',
-  background: 'lightgrey',
   opacity: '0',
+  background: '$rice500',
+  boxShadow: '0px 2px 4px rgba(0,0,0,0.1)',
   transition: 'all 100ms ease-in',
+  zIndex: '1',
 });
 
 const Grid = styled('div', {
   display: 'grid',
   gridGap: '$2',
-  gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+  gridAutoFlow: 'column',
   justifyContent: 'space-between',
 });
 

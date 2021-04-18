@@ -56,7 +56,7 @@ const Header: React.FC = () => (
   <Wrapper>
     <NavItem to="/">Home</NavItem>
     <NavItem to="/tags/color/" activeClassName="nav-item-active">
-      <p>Categories</p>
+      <p>Categories ›</p>
       <Submenu>
         <SubMenuItem>
           <StaticImage
@@ -137,11 +137,6 @@ const Header: React.FC = () => (
     </NavItem>
     <NavItem to="/tags/typography/" activeClassName="nav-item-active">
       Typography
-      <Submenu>
-        <p>Block 4</p>
-        <p>Block 5</p>
-        <p>Block 6</p>
-      </Submenu>
     </NavItem>
     <DarkModeToggle />
   </Wrapper>

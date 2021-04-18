@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { PageProps, graphql } from 'gatsby';
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
 import Container from '@/components/common/Container';
@@ -7,6 +8,7 @@ import AppList from '@/components/AppList';
 import CategoryList from '@/components/CategoryList';
 import { Subheading } from '@/components/common/TextStyles';
 import BlogList from '@/components/BlogList';
+import config from '../../static/SiteConfig';
 
 type IndexPageProps = {
   data: {
@@ -57,6 +59,7 @@ const Landing = ({ data }: IndexPageProps) => {
 
   return (
     <Layout>
+      <Helmet title={`${config.siteTitle}`} />
       <Container>
         <Row>
           <Block css={{ gridColumn: 'span 3' }}>

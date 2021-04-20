@@ -89,9 +89,9 @@ export const {
 //   },
 // });
 
-// export const dark = theme('dark-theme', {
-//   colors: {
-//     primary: '$white500',
-//     secondary: '$blue500',
-//   },
-// });
+export const dark = theme('dark-theme', {
+  colors: {
+    primary: '$white500',
+    secondary: '$blue500',
+  },
+});

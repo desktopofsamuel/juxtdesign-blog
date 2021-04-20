@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 import Link from '@/components/common/GatsbyLink';
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
-import Popup from 'reactjs-popup';
 import { StaticImage } from 'gatsby-plugin-image';
 import DarkModeToggle from './DarkModeToggle';
 import SiteLogo from '~/static/favicon.svg';
@@ -43,11 +42,14 @@ const NavItem = styled(Link, {
     color: '$primary',
     borderBottom: '2px $primary solid',
   },
+
+  '@md': {
+    display: 'none',
+  },
 });
 
 const SubMenuItem = styled(Link, {
-  display: 'grid',
-  placeContent: 'center center',
+  color: '$onBackground',
   textAlign: 'center',
   margin: '$2 0',
 });
@@ -58,78 +60,92 @@ const Header: React.FC = () => (
     <NavItem to="/tags/color/" activeClassName="nav-item-active">
       <p>Categories</p>
       <Submenu>
-        <SubMenuItem>
+        <SubMenuItem to="/tags/career/">
           <StaticImage
-            width={80}
-            height={80}
             as="span"
             alt=""
             src="../../../../static/menu/moment-backpack.jpg"
             imgStyle={{ borderRadius: '50%' }}
+            style={{ height: '100px', width: '100px' }}
+          />
+          <p>Career</p>
+        </SubMenuItem>
+        <SubMenuItem to="/tags/color/">
+          <StaticImage
+            as="span"
+            alt=""
+            src="../../../../static/menu/moment-backpack.jpg"
+            imgStyle={{ borderRadius: '50%' }}
+            style={{ height: '100px', width: '100px' }}
           />
           <p>Color</p>
         </SubMenuItem>
-        <SubMenuItem to="/tags/color">
+        <SubMenuItem to="/tags/design-conference/">
           <StaticImage
-            width={80}
-            height={80}
             as="span"
             alt=""
             src="../../../../static/menu/moment-backpack.jpg"
             imgStyle={{ borderRadius: '50%' }}
+            style={{ height: '100px', width: '100px' }}
+          />
+          <p>Design Conference</p>
+        </SubMenuItem>
+        <SubMenuItem to="/tags/illustrations/">
+          <StaticImage
+            as="span"
+            alt=""
+            src="../../../../static/menu/moment-backpack.jpg"
+            imgStyle={{ borderRadius: '50%' }}
+            style={{ height: '100px', width: '100px' }}
+          />
+          <p>Illustrations</p>
+        </SubMenuItem>
+        <SubMenuItem to="/tags/typography/">
+          <StaticImage
+            as="span"
+            alt=""
+            src="../../../../static/menu/moment-backpack.jpg"
+            imgStyle={{ borderRadius: '50%' }}
+            style={{ height: '100px', width: '100px' }}
           />
           <p>Typography</p>
-        </SubMenuItem>
-        <SubMenuItem>
-          <StaticImage
-            width={80}
-            height={80}
-            as="span"
-            alt=""
-            src="../../../../static/menu/moment-backpack.jpg"
-            imgStyle={{ borderRadius: '50%' }}
-          />
-          <p>Career</p>
         </SubMenuItem>
       </Submenu>
     </NavItem>
 
-    <NavItem to="/">
+    <Link to="/">
       <Logo src={SiteLogo} alt="Site Logo" />
-    </NavItem>
+    </Link>
     <NavItem to="/guides/" activeClassName="nav-item-active">
       <p>Guides ›</p>
       <Submenu>
-        <SubMenuItem>
+        <SubMenuItem to="/why-designers-need-a-personal-website/">
           <StaticImage
-            width={80}
-            height={80}
             as="span"
             alt=""
             src="../../../../static/menu/moment-backpack.jpg"
             imgStyle={{ borderRadius: '50%' }}
+            style={{ height: '100px', width: '100px' }}
           />
-          <p>2</p>
+          <p>Personal Website</p>
         </SubMenuItem>
-        <SubMenuItem to="/tags/color">
+        <SubMenuItem to="/3-quick-wins-to-make-your-website-accessible/">
           <StaticImage
-            width={80}
-            height={80}
             as="span"
             alt=""
             src="../../../../static/menu/moment-backpack.jpg"
             imgStyle={{ borderRadius: '50%' }}
+            style={{ height: '100px', width: '100px' }}
           />
-          <p>4</p>
+          <p>Accessibility</p>
         </SubMenuItem>
-        <SubMenuItem>
+        <SubMenuItem to="/">
           <StaticImage
-            width={80}
-            height={80}
             as="span"
             alt=""
             src="../../../../static/menu/moment-backpack.jpg"
             imgStyle={{ borderRadius: '50%' }}
+            style={{ height: '100px', width: '100px' }}
           />
           <p>How to prepare for an interview</p>
         </SubMenuItem>
@@ -143,7 +159,7 @@ const Header: React.FC = () => (
         <p>Block 6</p>
       </Submenu>
     </NavItem>
-    <DarkModeToggle />
+    {/* <DarkModeToggle /> */}
   </Wrapper>
 );
 export default Header;

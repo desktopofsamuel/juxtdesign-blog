@@ -24,6 +24,7 @@ const Logo = styled('img', {
 const NavItem = styled(Link, {
   height: '80px',
   display: 'grid',
+  color: '$body',
   placeContent: 'center center',
   padding: '0 $5',
   transition: 'all 0.3s ease-in-out',
@@ -56,7 +57,9 @@ const SubMenuItem = styled(Link, {
 
 const Header: React.FC = () => (
   <Wrapper>
-    <NavItem to="/">Home</NavItem>
+    <NavItem to="/" activeClassName="nav-item-active">
+      Home
+    </NavItem>
     <NavItem to="/tags/color/" activeClassName="nav-item-active">
       <p>Categories</p>
       <Submenu>
@@ -80,16 +83,6 @@ const Header: React.FC = () => (
           />
           <p>Color</p>
         </SubMenuItem>
-        <SubMenuItem to="/tags/design-conference/">
-          <StaticImage
-            as="span"
-            alt=""
-            src="../../../../static/menu/moment-backpack.jpg"
-            imgStyle={{ borderRadius: '50%' }}
-            style={{ height: '100px', width: '100px' }}
-          />
-          <p>Design Conference</p>
-        </SubMenuItem>
         <SubMenuItem to="/tags/illustrations/">
           <StaticImage
             as="span"
@@ -110,10 +103,20 @@ const Header: React.FC = () => (
           />
           <p>Typography</p>
         </SubMenuItem>
+        <SubMenuItem to="/tags/">
+          <StaticImage
+            as="span"
+            alt=""
+            src="../../../../static/menu/moment-backpack.jpg"
+            imgStyle={{ borderRadius: '50%' }}
+            style={{ height: '100px', width: '100px' }}
+          />
+          <p>More</p>
+        </SubMenuItem>
       </Submenu>
     </NavItem>
 
-    <Link to="/">
+    <Link to="/" style={{ margin: '0 24px' }}>
       <Logo src={SiteLogo} alt="Site Logo" />
     </Link>
     <NavItem to="/guides/" activeClassName="nav-item-active">
@@ -149,10 +152,20 @@ const Header: React.FC = () => (
           />
           <p>How to prepare for an interview</p>
         </SubMenuItem>
+        <SubMenuItem to="/guides">
+          <StaticImage
+            as="span"
+            alt=""
+            src="../../../../static/menu/moment-backpack.jpg"
+            imgStyle={{ borderRadius: '50%' }}
+            style={{ height: '100px', width: '100px' }}
+          />
+          <p>More blog</p>
+        </SubMenuItem>
       </Submenu>
     </NavItem>
-    <NavItem to="/tags/typography/" activeClassName="nav-item-active">
-      Typography
+    <NavItem to="/about/" activeClassName="nav-item-active">
+      About
       <Submenu>
         <p>Block 4</p>
         <p>Block 5</p>

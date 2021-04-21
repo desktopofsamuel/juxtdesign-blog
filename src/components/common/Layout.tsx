@@ -23,6 +23,11 @@ const globalStyles = global({
     textDecoration: 'none',
     color: '$primary',
   },
+
+  hr: {
+    border: '1px $grey100 solid',
+    margin: '$3 0',
+  },
 });
 
 const Layout: React.FC = ({ children }) => {

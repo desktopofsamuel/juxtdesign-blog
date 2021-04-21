@@ -15,7 +15,7 @@ const Wrapper = styled('main', {
         maxWidth: '1280px',
       },
       small: {
-        maxWidth: '1000px',
+        maxWidth: '800px',
       },
     },
   },

@@ -26,7 +26,7 @@ export const {
       primary: '$green500',
       primaryLighter: '$green100',
       secondary: '$red500',
-      body: '$grey300',
+      body: '$grey500',
       background: '$rice100',
       backgroundDarker: '$rice300',
       surface: '$white100',
@@ -93,5 +93,8 @@ export const dark = theme('dark-theme', {
   colors: {
     primary: '$white500',
     secondary: '$blue500',
+    background: 'grey700',
+    body: '$white100',
+    onBackground: '$white100',
   },
 });

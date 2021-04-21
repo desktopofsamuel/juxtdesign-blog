@@ -70,10 +70,10 @@ const Footer: React.FC = () => (
           </Wrapper>
           <Wrapper>
             <Title>Follow</Title>
-            <Link target="_blank" to="https://twitter.com/juxt_design">
+            <Link target="_blank" to="https://twitter.com/juxtdesignco">
               Twitter
             </Link>
-            <Link target="_blank" to="https://instagram.com/juxt_design">
+            <Link target="_blank" to="https://instagram.com/juxtdesignco">
               Instagram
             </Link>
           </Wrapper>

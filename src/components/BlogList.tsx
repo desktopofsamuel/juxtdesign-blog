@@ -35,7 +35,7 @@ const BlogList: React.FC<BlogListProps> = ({
       /* Your post list here. */
       posts.map((post) => (
         <Article
-          to={post.node.fields.slug}
+          to={`/posts${post.node.fields.slug}`}
           key={post.node.fields.slug}
           css={css}
           showFeaturePhoto={showFeaturePhoto}

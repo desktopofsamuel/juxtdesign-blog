@@ -5,7 +5,7 @@ export const PageTitle = styled('h1', {
   fontSize: '$6',
   fontFamily: '$sans',
   fontWeight: '$bold',
-  color: '$primary',
+  color: '$onBackground',
 });
 
 export const ResourceTitle = styled('h2', {
@@ -14,7 +14,7 @@ export const ResourceTitle = styled('h2', {
   fontFamily: '$sans',
   fontWeight: '$bold',
   textTransform: 'none',
-  color: '$primary',
+  color: '$onBackground',
 });
 
 export const ResourceType = styled('h3', {
@@ -23,11 +23,11 @@ export const ResourceType = styled('h3', {
   fontFamily: '$sans',
   fontWeight: '$bold',
   textTransform: 'uppercase',
-  color: '$red400',
+  color: '$secondary',
 });
 
 export const Subheading = styled('h3', {
-  margin: '0',
+  margin: '$3 0',
   fontSize: '$3',
   textTransform: 'uppercase',
 });
@@ -37,7 +37,7 @@ export const Paragraph = styled('p', {
   fontSize: '$3',
   fontFamily: '$sans',
   fontWeight: '$regular',
-  color: '$primary',
+  color: '$body',
 });
 
 export const PageMetadata = styled('p', {
@@ -45,20 +45,20 @@ export const PageMetadata = styled('p', {
   fontSize: '$3',
   fontFamily: '$sans',
   fontWeight: '$regular',
-  color: '$secondary',
+  color: '$primary',
 
   variants: {
-    weight: {
-      bold: {
-        fontWeight: '$bold',
-      },
-      regular: {
+    type: {
+      label: {
         fontWeight: '$regular',
+        fontSize: '$1',
+        textTransform: 'uppercase',
+        color: '$grey500',
+      },
+      value: {
+        fontWeight: '$bold',
+        color: '$secondary',
       },
     },
-  },
-
-  defaultVariants: {
-    weight: 'regular',
   },
 });

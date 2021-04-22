@@ -12,7 +12,7 @@ const globalStyles = global({
     lineHeight: '$regular',
     margin: '0',
     padding: '0',
-    backgroundColor: '$rice500',
+    backgroundColor: '$background',
   },
 
   body: {
@@ -21,6 +21,21 @@ const globalStyles = global({
 
   a: {
     textDecoration: 'none',
+    color: '$primary',
+
+    '&:hover': {
+      textDecoration: 'underline',
+    },
+  },
+
+  hr: {
+    border: '1px $grey100 solid',
+    margin: '$3 0',
+  },
+
+  blockquote: {
+    fontSize: '$4',
+    textAlign: 'center',
     color: '$primary',
   },
 });

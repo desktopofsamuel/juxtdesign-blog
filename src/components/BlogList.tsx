@@ -11,16 +11,51 @@ const Article = styled(Link, {
   gridRow: 'span 3',
 });
 
-const BlogList = ({ posts, css }) => (
+type BlogListProps = {
+  posts: any;
+  css?: any;
+  showFeaturePhoto?: boolean;
+  className?: string;
+};
+
+const defaultProps: BlogListProps = {
+  showFeaturePhoto: false,
+  css: '',
+  className: '',
+};
+
+const BlogList: React.FC<BlogListProps> = ({
+  posts,
+  css,
+  showFeaturePhoto,
+  className,
+}) => (
   <>
     {
       /* Your post list here. */
       posts.map((post) => (
         <Article
-          to={post.node.fields.slug}
+          to={`/posts${post.node.fields.slug}`}
           key={post.node.fields.slug}
           css={css}
+          showFeaturePhoto={showFeaturePhoto}
+          className={className}
         >
+          {post.node.frontmatter.featurePhoto !== null && showFeaturePhoto ? (
+            <GatsbyImage
+              image={
+                post.node.frontmatter.featurePhoto.childImageSharp
+                  .gatsbyImageData
+              }
+              alt={post.title}
+            />
+          ) : null}
+          {/* <GatsbyImage
+            image={
+              post.node.frontmatter.featurePhoto.childImageSharp.gatsbyImageData
+            }
+            alt={post.title}
+          /> */}
           <ResourceTitle>{post.node.frontmatter.title}</ResourceTitle>
           <Paragraph>{post.node.excerpt}</Paragraph>
         </Article>
@@ -28,5 +63,7 @@ const BlogList = ({ posts, css }) => (
     }
   </>
 );
+
+BlogList.defaultProps = defaultProps;
 
 export default BlogList;

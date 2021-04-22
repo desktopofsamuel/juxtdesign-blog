@@ -12,7 +12,7 @@ const Wrapper = styled('main', {
   variants: {
     size: {
       medium: {
-        maxWidth: '1280px',
+        maxWidth: '1440px',
       },
       small: {
         maxWidth: '1000px',
@@ -26,11 +26,17 @@ const Wrapper = styled('main', {
 });
 
 type ContainerProps = {
-  size: 'small' | 'medium';
+  size?: 'small' | 'medium';
+};
+
+const defaultProps: ContainerProps = {
+  size: 'medium',
 };
 
 const Container: React.FC<ContainerProps> = ({ children, size }) => (
   <Wrapper size={size}>{children}</Wrapper>
 );
+
+Container.defaultProps = defaultProps;
 
 export default Container;

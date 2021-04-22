@@ -11,23 +11,29 @@ export const {
   theme: {
     colors: {
       // Token
-      blue300: '#0077CC',
-      blue500: '#3C4F68',
-      blue700: '#253141',
-      rice500: '#F9F5F1',
-      red400: 'tomato',
-      red500: 'red',
-      red700: 'pink',
+
       green100: '#F1F9F8',
       green500: '#025050',
-      white500: '#ffffff',
-      lightgrey: '#E5EAF0',
-      darkgrey: '#253141',
-      black: '#272D2D',
+      red500: '#FF6347',
+      rice100: '#F9F5F1',
+      rice300: '#F6F1EC',
+      white100: '#ffffff',
+      grey100: '#E5EAF0',
+      grey500: '#575C63',
+      grey700: '#272D2D',
       transparent: 'rgba(0,0,0,0)',
       // Alias
-      primary: '$blue700',
+      primary: '$green500',
+      primaryLighter: '$green100',
       secondary: '$red500',
+      body: '$grey500',
+      background: '$rice100',
+      backgroundDarker: '$rice300',
+      surface: '$white100',
+      onBackground: '$grey700',
+      onSurface: '$grey700',
+      onPrimary: '$white100',
+      border: '$grey100',
     },
     transitions: {
       default: ' 0.2s all ease-in-out',
@@ -41,12 +47,12 @@ export const {
       6: '120px',
     },
     fontSizes: {
-      1: '12px',
-      2: '14px',
-      3: '16px',
-      4: '24px',
-      5: '36px',
-      6: '48px',
+      1: '14px',
+      2: '16px',
+      3: '18px',
+      4: '28px',
+      5: '42px',
+      6: '64px',
     },
     fonts: {
       sans: 'HK Grotesk, apple-system, Helvetica, Arial, sans-serif',
@@ -76,16 +82,19 @@ export const {
   },
 });
 
-export const light = theme('light-theme', {
-  colors: {
-    primary: '$black',
-    secondary: '$blue700',
-  },
-});
+// export const light = theme('light-theme', {
+//   colors: {
+//     primary: '$black',
+//     secondary: '$blue700',
+//   },
+// });
 
 export const dark = theme('dark-theme', {
   colors: {
-    primary: '$red700',
+    primary: '$white500',
     secondary: '$blue500',
+    background: 'grey700',
+    body: '$white100',
+    onBackground: '$white100',
   },
 });

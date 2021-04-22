@@ -6,20 +6,21 @@ const ActiveLink = {
   fontWeight: 600,
 };
 
-type LinkProps = {
-  children: React.ReactNode;
-  to: string;
-  activeClassName?: string;
-  partiallyActive?: boolean;
-  target: '_blank' | '_self';
-  className?: string;
-};
-
 const defaultProps: LinkProps = {
   target: '_self',
   className: '',
-  to: '',
   children: {},
+  activeClassName: '',
+  partiallyActive: false,
+};
+
+type LinkProps = {
+  target?: '_blank' | '_self';
+  className?: string;
+  children?: React.ReactNode;
+  to: string;
+  activeClassName?: string;
+  partiallyActive?: boolean;
 };
 
 // Since DOM elements <a> cannot receive activeClassName

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { PageProps, graphql } from 'gatsby';
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
 import Container from '@/components/common/Container';
@@ -7,6 +8,7 @@ import AppList from '@/components/AppList';
 import CategoryList from '@/components/CategoryList';
 import { Subheading } from '@/components/common/TextStyles';
 import BlogList from '@/components/BlogList';
+import config from '../../static/SiteConfig';
 
 type IndexPageProps = {
   data: {
@@ -57,7 +59,11 @@ const Landing = ({ data }: IndexPageProps) => {
 
   return (
     <Layout>
+      <Helmet title={`${config.siteTitle}`} />
       <Container>
+        <Row>
+          <BlogList posts={blog.edges} />
+        </Row>
         <Row>
           <Block css={{ gridColumn: 'span 3' }}>
             <Subheading>Categories</Subheading>
@@ -67,8 +73,6 @@ const Landing = ({ data }: IndexPageProps) => {
           <AppListWrapper>
             <AppList posts={app.edges} category />
           </AppListWrapper>
-
-          <BlogList posts={blog.edges} />
         </Row>
       </Container>
     </Layout>
@@ -99,7 +103,11 @@ export const pageQuery = graphql`
         }
       }
     }
-    blog: allMdx(sort: { order: DESC, fields: frontmatter___date }) {
+    blog: allMdx(
+      sort: { order: DESC, fields: frontmatter___date }
+      limit: 6
+      filter: { frontmatter: { category: { ne: "Learn" } } }
+    ) {
       edges {
         node {
           ...post

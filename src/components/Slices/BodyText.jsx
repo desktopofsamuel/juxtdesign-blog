@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
 
 const Content = styled('div', {
-  maxWidth: '720px',
+  color: '$body',
 });
 
 const BodyText = ({ input }) => (

@@ -67,7 +67,7 @@ const Header: React.FC = () => (
           <StaticImage
             as="span"
             alt=""
-            src="../../../../static/menu/moment-backpack.jpg"
+            src="../../../../static/menu/career.png"
             imgStyle={{ borderRadius: '50%' }}
             style={{ height: '100px', width: '100px' }}
           />
@@ -77,7 +77,7 @@ const Header: React.FC = () => (
           <StaticImage
             as="span"
             alt=""
-            src="../../../../static/menu/moment-backpack.jpg"
+            src="../../../../static/menu/color.png"
             imgStyle={{ borderRadius: '50%' }}
             style={{ height: '100px', width: '100px' }}
           />
@@ -87,7 +87,7 @@ const Header: React.FC = () => (
           <StaticImage
             as="span"
             alt=""
-            src="../../../../static/menu/moment-backpack.jpg"
+            src="../../../../static/menu/illustrations.png"
             imgStyle={{ borderRadius: '50%' }}
             style={{ height: '100px', width: '100px' }}
           />
@@ -97,7 +97,7 @@ const Header: React.FC = () => (
           <StaticImage
             as="span"
             alt=""
-            src="../../../../static/menu/moment-backpack.jpg"
+            src="../../../../static/menu/typography.png"
             imgStyle={{ borderRadius: '50%' }}
             style={{ height: '100px', width: '100px' }}
           />
@@ -107,7 +107,7 @@ const Header: React.FC = () => (
           <StaticImage
             as="span"
             alt=""
-            src="../../../../static/menu/moment-backpack.jpg"
+            src="../../../../static/menu/more.png"
             imgStyle={{ borderRadius: '50%' }}
             style={{ height: '100px', width: '100px' }}
           />

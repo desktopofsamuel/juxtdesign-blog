@@ -11,8 +11,9 @@ import {
   Paragraph,
   PageMetadata,
 } from '@/components/common/TextStyles';
-import config from '../../static/SiteConfig';
 import Link from '@/components/common/GatsbyLink';
+import SEO from '../components/SEO';
+import config from '../../static/SiteConfig';
 
 const Grid = styled('div', {
   display: 'grid',
@@ -65,6 +66,7 @@ const PostTemplate: React.FC<PageProps> = ({ data, pageContext }) => {
             </Link>
           </PageMetadata>
           <PageTitle>{post.title}</PageTitle>
+          <SEO postPath={`/posts/${slug}`} postNode={postNode} postSEO />
 
           <MDXRenderer>{postNode.body}</MDXRenderer>
           {/* <Row>

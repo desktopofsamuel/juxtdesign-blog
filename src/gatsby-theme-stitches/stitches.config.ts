@@ -47,12 +47,12 @@ export const {
       6: '120px',
     },
     fontSizes: {
-      1: '12px',
-      2: '14px',
-      3: '16px',
-      4: '24px',
-      5: '36px',
-      6: '48px',
+      1: '14px',
+      2: '16px',
+      3: '18px',
+      4: '28px',
+      5: '42px',
+      6: '64px',
     },
     fonts: {
       sans: 'HK Grotesk, apple-system, Helvetica, Arial, sans-serif',

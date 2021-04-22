@@ -20,10 +20,10 @@ const globalStyles = global({
   },
 
   a: {
+    textDecoration: 'none',
     color: '$primary',
 
     '&:hover': {
-      opacity: '0.8',
       textDecoration: 'underline',
     },
   },

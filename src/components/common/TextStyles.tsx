@@ -45,20 +45,20 @@ export const PageMetadata = styled('p', {
   fontSize: '$3',
   fontFamily: '$sans',
   fontWeight: '$regular',
-  color: '$secondary',
+  color: '$primary',
 
   variants: {
-    weight: {
-      bold: {
-        fontWeight: '$bold',
-      },
-      regular: {
+    type: {
+      label: {
         fontWeight: '$regular',
+        fontSize: '$1',
+        textTransform: 'uppercase',
+        color: '$grey500',
+      },
+      value: {
+        fontWeight: '$bold',
+        color: '$secondary',
       },
     },
-  },
-
-  defaultVariants: {
-    weight: 'regular',
   },
 });

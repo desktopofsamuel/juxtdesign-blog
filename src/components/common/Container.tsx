@@ -12,10 +12,10 @@ const Wrapper = styled('main', {
   variants: {
     size: {
       medium: {
-        maxWidth: '1280px',
+        maxWidth: '1440px',
       },
       small: {
-        maxWidth: '800px',
+        maxWidth: '1000px',
       },
     },
   },

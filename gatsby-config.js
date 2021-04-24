@@ -35,6 +35,12 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-KMZKK6Q',
+      },
+    },
+    {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: 'dojo2',

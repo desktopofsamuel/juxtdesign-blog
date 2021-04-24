@@ -12,24 +12,21 @@ import {
   PageMetadata,
 } from '@/components/common/TextStyles';
 import Link from '@/components/common/GatsbyLink';
-import SEO from '../components/SEO';
+import SEO from '@/components/SEO';
 import config from '../../static/SiteConfig';
 
 const Grid = styled('div', {
   display: 'grid',
-  gridTemplateColumns: 'minmax(24px, 1fr) 8fr minmax(24px, 1fr)',
-  gridAutoFlow: 'column',
+  // gridTemplateColumns: 'minmax(24px, 1fr) 8fr minmax(24px, 1fr)',
+  gridTemplateColumns: '1fr 1fr 1fr 1fr',
   gap: '5vw',
 
-  '@md': {
-    display: 'flex',
-    flexDirection: 'column',
+  '@sm': {
+    gridTemplateColumns: '1fr 1fr',
   },
 });
 
-const Row = styled('section', {
-  padding: '2rem 0',
-});
+const Wrapper = styled('div', {});
 
 const PostTemplate: React.FC<PageProps> = ({ data, pageContext }) => {
   const { slug } = pageContext;
@@ -46,39 +43,53 @@ const PostTemplate: React.FC<PageProps> = ({ data, pageContext }) => {
       <Helmet>
         <title>{`${post.title} | ${config.siteTitle}`}</title>
       </Helmet>
-      {/* <SEO postPath={slug} postNode={postNode} postSEO /> */}
-      <Grid>
-        <div></div>
-        {/* <SocialLinks postPath={slug} postNode={postNode} /> */}
-        <Container size="small">
-          <Subheading>
-            <time>{post.date}</time>
-          </Subheading>
-          <Subheading>{post.category}</Subheading>
-          <PageMetadata>Read Time</PageMetadata>
-          <PageMetadata weight="bold">{postNode.timeToRead}</PageMetadata>
-          <PageMetadata>Share</PageMetadata>
-          <PageMetadata>
-            <Link
-              to={`https://twitter.com/intent/tweet?text=${post.title}&url=${config.siteUrl}${postNode.fields.slug}`}
-            >
-              Twitter
-            </Link>
-          </PageMetadata>
-          <PageTitle>{post.title}</PageTitle>
-          <SEO postPath={`/posts/${slug}`} postNode={postNode} postSEO />
+      <SEO postPath={slug} postNode={postNode} postSEO />
 
-          <MDXRenderer>{postNode.body}</MDXRenderer>
-          {/* <Row>
+      {/* <SocialLinks postPath={slug} postNode={postNode} /> */}
+      <Container size="small">
+        <PageTitle css={{ '@sm': { fontSize: '$5' } }}>{post.title}</PageTitle>
+        <hr />
+        <Grid>
+          <Wrapper>
+            <PageMetadata type="label">Updated on</PageMetadata>
+            <PageMetadata type="value">
+              <time>{post.date}</time>
+            </PageMetadata>
+          </Wrapper>
+          <Wrapper>
+            <PageMetadata type="label">Read Time</PageMetadata>
+            <PageMetadata type="value">
+              {postNode.timeToRead} {postNode.timeToRead > 1 ? 'mins' : 'min'}
+            </PageMetadata>
+          </Wrapper>
+          <Wrapper>
+            <PageMetadata type="label">Author</PageMetadata>
+            <PageMetadata type="value">Samuel Wong</PageMetadata>
+          </Wrapper>
+          <Wrapper>
+            <PageMetadata type="label">Share</PageMetadata>
+            <PageMetadata type="value">
+              <Link
+                to={`https://twitter.com/intent/tweet?text=${post.title}&url=${config.siteUrl}${postNode.fields.slug}`}
+              >
+                Twitter
+              </Link>
+            </PageMetadata>
+          </Wrapper>
+        </Grid>
+
+        <Subheading>{post.category}</Subheading>
+
+        <MDXRenderer>{postNode.body}</MDXRenderer>
+        {/* <Row>
               <div className="post-meta">
                 <PostTags tags={post.tags} />
               </div>
             </Row> */}
-          {/* <Disqus postNode={postNode} /> */}
-        </Container>
-        {/* <TableOfContents headings={headings} toc={toc} /> */}
-        {/* <TOC2 /> */} <div></div>
-      </Grid>
+        {/* <Disqus postNode={postNode} /> */}
+      </Container>
+      {/* <TableOfContents headings={headings} toc={toc} /> */}
+      {/* <TOC2 /> */}
     </Layout>
   );
 };

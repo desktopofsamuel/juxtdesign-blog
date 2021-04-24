@@ -61,13 +61,13 @@ const Header: React.FC = () => (
       Home
     </NavItem>
     <NavItem to="/tags/color/" activeClassName="nav-item-active">
-      <p>Categories</p>
+      <p>Categories ›</p>
       <Submenu>
         <SubMenuItem to="/tags/career/">
           <StaticImage
             as="span"
             alt=""
-            src="../../../../static/menu/moment-backpack.jpg"
+            src="../../../../static/menu/career.png"
             imgStyle={{ borderRadius: '50%' }}
             style={{ height: '100px', width: '100px' }}
           />
@@ -77,7 +77,7 @@ const Header: React.FC = () => (
           <StaticImage
             as="span"
             alt=""
-            src="../../../../static/menu/moment-backpack.jpg"
+            src="../../../../static/menu/color.png"
             imgStyle={{ borderRadius: '50%' }}
             style={{ height: '100px', width: '100px' }}
           />
@@ -87,7 +87,7 @@ const Header: React.FC = () => (
           <StaticImage
             as="span"
             alt=""
-            src="../../../../static/menu/moment-backpack.jpg"
+            src="../../../../static/menu/illustrations.png"
             imgStyle={{ borderRadius: '50%' }}
             style={{ height: '100px', width: '100px' }}
           />
@@ -97,7 +97,7 @@ const Header: React.FC = () => (
           <StaticImage
             as="span"
             alt=""
-            src="../../../../static/menu/moment-backpack.jpg"
+            src="../../../../static/menu/typography.png"
             imgStyle={{ borderRadius: '50%' }}
             style={{ height: '100px', width: '100px' }}
           />
@@ -107,7 +107,7 @@ const Header: React.FC = () => (
           <StaticImage
             as="span"
             alt=""
-            src="../../../../static/menu/moment-backpack.jpg"
+            src="../../../../static/menu/more.png"
             imgStyle={{ borderRadius: '50%' }}
             style={{ height: '100px', width: '100px' }}
           />
@@ -164,13 +164,8 @@ const Header: React.FC = () => (
         </SubMenuItem>
       </Submenu>
     </NavItem>
-    <NavItem to="/about/" activeClassName="nav-item-active">
-      About
-      <Submenu>
-        <p>Block 4</p>
-        <p>Block 5</p>
-        <p>Block 6</p>
-      </Submenu>
+    <NavItem to="/tags/typography/" activeClassName="nav-item-active">
+      Typography
     </NavItem>
     {/* <DarkModeToggle /> */}
   </Wrapper>

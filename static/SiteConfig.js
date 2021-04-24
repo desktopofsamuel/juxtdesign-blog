@@ -17,7 +17,7 @@ const config = {
   postsPerPage: 6, // Amount of posts displayed per listing page.
   userName: 'JUXT Design', // Username to display in the author segment.
   userEmail: 'juxtdesignco@gmail.com', // Email used for RSS feed's author segment
-  userTwitter: '@juxt_design', // Optionally renders "Follow Me" in the UserInfo segment.
+  userTwitter: '@juxtdesignco', // Optionally renders "Follow Me" in the UserInfo segment.
   userLocation: 'Internet', // User location to display in the author segment.
   userAvatar: 'https://api.adorable.io/avatars/150/test.png', // User avatar to display in the author segment.
   userDescription:

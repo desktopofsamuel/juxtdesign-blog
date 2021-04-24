@@ -4,13 +4,14 @@ export const postFragment = graphql`
   fragment post on Mdx {
     body
     timeToRead
-    excerpt
+    excerpt(pruneLength: 250)
     frontmatter {
       title
       date(formatString: "MMM DD, YYYY", locale: "en")
       category
       tags
       featurePhoto {
+        publicURL
         childImageSharp {
           gatsbyImageData(layout: FULL_WIDTH)
         }

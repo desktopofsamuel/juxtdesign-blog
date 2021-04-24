@@ -5,6 +5,9 @@ import Container from '@/components/common/Container';
 import Layout from '@/components/common/Layout';
 import BlogList from '@/components/BlogList';
 import { Subheading } from '@/components/common/TextStyles';
+import SEO from '../components/common/SEO';
+import config from '../../static/SiteConfig';
+import { Helmet } from 'react-helmet';
 
 const Grid = styled('section', {
   display: 'grid',
@@ -18,9 +21,12 @@ const Row = styled('section', {
 
 const Guides: React.FC = ({ data }) => {
   const { featureBlog, allBlog, learnBlog } = data;
+  const title = `Guides | ${config.siteTitle}`;
 
   return (
     <Layout>
+      <Helmet title={title} />
+      <SEO postPath="/guides" pageTitle={title} />
       <Container>
         <Subheading>Featured</Subheading>
         <Grid>

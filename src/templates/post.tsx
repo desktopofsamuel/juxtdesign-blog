@@ -11,8 +11,9 @@ import {
   Paragraph,
   PageMetadata,
 } from '@/components/common/TextStyles';
-import config from '../../static/SiteConfig';
 import Link from '@/components/common/GatsbyLink';
+import SEO from '../components/common/SEO';
+import config from '../../static/SiteConfig';
 
 const Grid = styled('div', {
   display: 'grid',
@@ -28,10 +29,8 @@ const Grid = styled('div', {
 const Wrapper = styled('div', {});
 
 const PostTemplate: React.FC<PageProps> = ({ data, pageContext }) => {
-  const { slug } = pageContext;
+  const slug = `posts${pageContext.slug}`;
   const postNode = data.mdx;
-  const { headings } = postNode;
-  const toc = postNode.tableOfContents;
   const post = postNode.frontmatter;
   if (!post.id) {
     post.id = slug;
@@ -42,8 +41,7 @@ const PostTemplate: React.FC<PageProps> = ({ data, pageContext }) => {
       <Helmet>
         <title>{`${post.title} | ${config.siteTitle}`}</title>
       </Helmet>
-      {/* <SEO postPath={slug} postNode={postNode} postSEO /> */}
-
+      <SEO postPath={slug} postNode={postNode} postSEO />
       {/* <SocialLinks postPath={slug} postNode={postNode} /> */}
       <Container size="small">
         <PageTitle css={{ '@sm': { fontSize: '$5' } }}>{post.title}</PageTitle>

@@ -9,6 +9,7 @@ import CategoryList from '@/components/CategoryList';
 import { Subheading } from '@/components/common/TextStyles';
 import BlogList from '@/components/BlogList';
 import config from '../../static/SiteConfig';
+import SEO from '../components/common/SEO';
 
 type IndexPageProps = {
   data: {
@@ -60,6 +61,7 @@ const Landing = ({ data }: IndexPageProps) => {
   return (
     <Layout>
       <Helmet title={`${config.siteTitle}`} />
+      <SEO postPath="/" />
       <Container>
         <Row>
           <BlogList posts={blog.edges} />

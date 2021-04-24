@@ -3,17 +3,21 @@ import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 import Layout from '@/components/common/Layout';
 import BlogList from '@/components/BlogList';
-import config from '../../static/SiteConfig';
 import Container from '@/components/common/Container';
 import { PageTitle } from '@/components/common/TextStyles';
+import config from '../../static/SiteConfig';
+import SEO from '../components/common/SEO';
 
 const CategoryTemplate = ({ pageContext, data }) => {
-  const { category } = pageContext;
+  const { slug, category } = pageContext;
   const postEdges = data.allMdx.edges;
+  const title = ` ${category} | ${config.siteTitle}`;
+
   return (
     <Layout>
       <Container size="small">
-        <Helmet title={`Posts in "${category}" | ${config.siteTitle}`} />
+        <Helmet title={title} />
+        <SEO pageTitle={title} postPath={slug} />
         <PageTitle>Posts in {category}</PageTitle>
         <BlogList posts={postEdges} />
       </Container>

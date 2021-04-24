@@ -161,17 +161,19 @@ exports.createPages = async ({ graphql, actions }) => {
         nextslug: `/posts${nextEdge.node.fields.slug}`,
         prevtitle: prevEdge.node.frontmatter.title,
         prevslug: `/posts${prevEdge.node.fields.slug}`,
-        template: edge.node.fields.template,
       },
     });
   });
 
-  //  Create tag pages
+  //  Create tag pages for blog tags
   tagSet.forEach((tag) => {
     createPage({
       path: `/tags/${kebabCase(tag)}/`,
       component: tagPage,
-      context: { tag },
+      context: {
+        tag,
+        slug: `/tags/${kebabCase(tag)}/`,
+      },
     });
   });
 
@@ -180,16 +182,19 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/categories/${kebabCase(category)}/`,
       component: categoryPage,
-      context: { category },
+      context: { category, slug: `/categories/${kebabCase(category)}/` },
     });
   });
 
-  // Create category pages for Tags
+  // Create category pages for Prismic Tags
   PrismicCategorySet.forEach((edge) => {
     createPage({
       path: `/tags/${kebabCase(edge.node.uid)}/`,
       component: tagPage,
-      context: { tag: edge.node.uid },
+      context: {
+        tag: edge.node.uid,
+        slug: `/tags/${kebabCase(edge.node.uid)}/`,
+      },
     });
   });
 };

@@ -2,26 +2,38 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import urljoin from 'url-join';
 import dayjs from 'dayjs';
-import config from '../../static/SiteConfig';
+import config from '../../../static/SiteConfig';
 
-const SEO = (postNode, postPath, postSEO) => {
+const SEO = ({
+  postNode,
+  postPath,
+  postSEO,
+  pageTitle,
+  pageDescription,
+  pageKeywords,
+  pageImage,
+}) => {
   let title;
   let description;
   let image;
+  let keywords;
   let postURL;
 
   if (postSEO) {
     const postMeta = postNode.frontmatter;
-    ({ title } = postMeta);
-    description = postMeta.description
-      ? postMeta.description
-      : postNode.excerpt;
-    image = postMeta.featurePhoto ? postMeta.featurePhoto : config.siteLogo;
+    title = `${postMeta.title} | ${config.siteTitleShort}`;
+    description = postNode.excerpt;
+    image = postMeta.featurePhoto
+      ? postMeta.featurePhoto.publicURL
+      : config.siteLogo;
     postURL = urljoin(config.siteUrl, config.pathPrefix, postPath);
+    keywords = postMeta.tags ? postMeta.tags : config.siteKeywords;
   } else {
-    title = config.siteTitle;
-    description = config.siteDescription;
-    image = config.siteLogo;
+    title = pageTitle || config.siteTitle;
+    description = pageDescription || config.siteDescription;
+    image = pageImage || config.siteLogo;
+    keywords = pageKeywords || config.siteKeywords;
+    postURL = urljoin(config.siteUrl, config.pathPrefix, postPath);
   }
 
   const getImagePath = (imageURI) => {
@@ -110,8 +122,14 @@ const SEO = (postNode, postPath, postSEO) => {
   return (
     <Helmet>
       {/* General tags */}
+      <html lang="en" />
+      <meta name="title" content={title} />
       <meta name="description" content={description} />
       <meta name="image" content={image} />
+      <meta name="keywords" content={keywords} />
+      <meta name="publisher" content={config.siteTitleShort} />
+      <meta name="author" content={config.siteTitleShort} />
+      <meta name="copyright" content={config.copyright} />
 
       {/* Schema.org tags */}
       <script type="application/ld+json">
@@ -119,7 +137,7 @@ const SEO = (postNode, postPath, postSEO) => {
       </script>
 
       {/* OpenGraph tags */}
-      <meta property="og:url" content={postSEO ? postURL : blogURL} />
+      <meta property="og:url" content={postURL} />
       {postSEO ? <meta property="og:type" content="article" /> : null}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
@@ -132,7 +150,7 @@ const SEO = (postNode, postPath, postSEO) => {
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta
-        name="twitter:creator"
+        name="twitter:site"
         content={config.userTwitter ? config.userTwitter : ''}
       />
       <meta name="twitter:title" content={title} />

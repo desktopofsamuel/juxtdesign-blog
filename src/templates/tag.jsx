@@ -9,7 +9,7 @@ import AppList from '@/components/AppList';
 import BlogList from '@/components/BlogList';
 import { PageTitle, Subheading } from '@/components/common/TextStyles';
 import config from '../../static/SiteConfig';
-// import SEO from "../components/SEO/SEO";
+import SEO from '../components/common/SEO';
 
 const Row = styled('section', {
   padding: '1rem 0',
@@ -44,19 +44,29 @@ const Subtitle = styled('p', {
 });
 
 const TagTemplate = ({ pageContext, data }) => {
-  const { tag } = pageContext;
+  const { slug, tag } = pageContext;
   const StartCase = startCase(tag);
+  // GraphQL
   const blogEdges = data.blog.edges;
   const appEdges = data.app.edges;
+
+  // SEO
+  const title = `Posts tagged as "${StartCase}" | ${config.siteTitle}`;
   const description = data.category ? data.category.data.description : null;
+  const keywords = data.category ? data.category.data.keywords : null;
+  const featurePhoto = data.category ? data.category.data.image.url : null;
 
   return (
     <Layout>
       <Container>
-        {/* <SEO
-          title={`Posts tagged as "${StartCase}" | ${config.siteTitle}`}
-          description={description}
-        /> */}
+        <Helmet title={title} />
+        <SEO
+          pageTitle={title}
+          pageDescription={description}
+          pageKeywords={keywords}
+          pageImage={featurePhoto}
+          postPath={slug}
+        />
         <Header>
           <Subheading>Topic</Subheading>
           <PageTitle>{StartCase}</PageTitle>
@@ -97,9 +107,7 @@ export const pageQuery = graphql`
         keywords
         description
         image {
-          fluid {
-            src
-          }
+          url
         }
       }
     }

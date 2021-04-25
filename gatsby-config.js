@@ -5,6 +5,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        defaultLayouts: {
+          default: require.resolve('./src/templates/default.tsx'),
+        },
         lessBabel: true,
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [

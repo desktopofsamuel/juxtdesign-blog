@@ -11,7 +11,7 @@ import BlogList from '@/components/BlogList';
 import config from '../../static/SiteConfig';
 import SEO from '../components/common/SEO';
 
-type IndexPageProps = {
+type Props = {
   data: {
     category: {
       edges: {
@@ -49,13 +49,13 @@ const AppListWrapper = styled('div', {
   gridTemplateColumns: '1fr 1fr',
 
   '@md': {
-    display: 'block',
+    gridTemplateColumns: '1fr',
   },
 });
 
 const Block = styled('div', {});
 
-const Landing = ({ data }: IndexPageProps) => {
+const Landing = ({ data }: Props) => {
   const { app, category, blog } = data;
 
   return (
@@ -67,11 +67,10 @@ const Landing = ({ data }: IndexPageProps) => {
           <BlogList posts={blog.edges} />
         </Row>
         <Row>
-          <Block css={{ gridColumn: 'span 3' }}>
+          <Block css={{ gridColumn: 'span 3', '@md': { display: 'none' } }}>
             <Subheading>Categories</Subheading>
             <CategoryList categories={category.edges} />
           </Block>
-
           <AppListWrapper>
             <AppList posts={app.edges} category />
           </AppListWrapper>

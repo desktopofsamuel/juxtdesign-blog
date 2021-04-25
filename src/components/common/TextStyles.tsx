@@ -2,7 +2,7 @@ import { styled } from 'gatsby-theme-stitches/src/stitches.config';
 
 export const PageTitle = styled('h1', {
   margin: '0',
-  fontSize: '$6',
+  fontSize: '$7',
   fontFamily: '$sans',
   fontWeight: '$bold',
   color: '$onBackground',
@@ -10,11 +10,15 @@ export const PageTitle = styled('h1', {
 
 export const ResourceTitle = styled('h2', {
   margin: '0',
-  fontSize: '$4',
+  fontSize: '$5',
   fontFamily: '$sans',
   fontWeight: '$bold',
   textTransform: 'none',
   color: '$onBackground',
+
+  '@md': {
+    fontSize: '$4',
+  },
 });
 
 export const ResourceType = styled('h3', {

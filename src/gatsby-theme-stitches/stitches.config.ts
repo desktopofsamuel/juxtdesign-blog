@@ -50,9 +50,10 @@ export const {
       1: '14px',
       2: '16px',
       3: '18px',
-      4: '28px',
-      5: '42px',
-      6: '64px',
+      4: '24px',
+      5: '28px',
+      6: '36px',
+      7: '48px',
     },
     fonts: {
       sans: 'HK Grotesk, apple-system, Helvetica, Arial, sans-serif',

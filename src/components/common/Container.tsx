@@ -5,10 +5,6 @@ const Wrapper = styled('main', {
   padding: '0 $2',
   margin: '0 auto',
 
-  '@sm': {
-    padding: '0 $1',
-  },
-
   variants: {
     size: {
       medium: {

@@ -14,6 +14,10 @@ const Wrapper = styled('nav', {
   alignItems: 'center',
   marginBottom: '$5',
   borderBottom: '2px $border solid',
+
+  '@md': {
+    justifyContent: 'space-around',
+  },
 });
 
 const Logo = styled('img', {
@@ -49,6 +53,18 @@ const NavItem = styled(Link, {
   },
 });
 
+const MobileNavItem = styled(Link, {
+  height: '80px',
+  color: '$body',
+  padding: '0 $5',
+  display: 'none',
+  placeContent: 'center center',
+
+  '@md': {
+    display: 'grid',
+  },
+});
+
 const SubMenuItem = styled(Link, {
   color: '$onBackground',
   textAlign: 'center',
@@ -57,6 +73,7 @@ const SubMenuItem = styled(Link, {
 
 const Header: React.FC = () => (
   <Wrapper>
+    <MobileNavItem to="/guides/">Guides</MobileNavItem>
     <NavItem to="/" activeClassName="nav-item-active">
       Home
     </NavItem>
@@ -167,6 +184,7 @@ const Header: React.FC = () => (
     <NavItem to="/tags/typography/" activeClassName="nav-item-active">
       Typography
     </NavItem>
+    <MobileNavItem to="/guides/">Resources</MobileNavItem>
     {/* <DarkModeToggle /> */}
   </Wrapper>
 );

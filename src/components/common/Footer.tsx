@@ -64,9 +64,9 @@ const Footer: React.FC = () => (
         <FooterRight>
           <Wrapper>
             <Title>Explore</Title>
-            <Link to="/about">About</Link>
-            <Link to="/blog">Blog</Link>
-            <Link to="/resource">Resource</Link>
+            <Link to="/about/">About</Link>
+            <Link to="/guides/">Blog</Link>
+            <Link to="/resources/">Resource</Link>
           </Wrapper>
           <Wrapper>
             <Title>Follow</Title>

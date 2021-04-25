@@ -35,7 +35,8 @@ type Props = {
 const Row = styled('div', {
   display: 'grid',
   gridTemplate: 'auto/repeat(12, 1fr)',
-  gridGap: '4rem',
+  gridGap: '$3',
+  padding: '$3 0',
 
   '@md': {
     display: 'block',

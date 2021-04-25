@@ -19,6 +19,10 @@ const ContentWrapper = styled('div', {
   textDecoration: 'none',
 });
 
+// type Props = {
+//   posts
+// }
+
 const AppList: React.FC = ({ posts, css, category, type }) => (
   <>
     {posts.map((post) => (
@@ -37,7 +41,7 @@ const AppList: React.FC = ({ posts, css, category, type }) => (
                 {post.node.data.types.document.data.name}
               </ResourceType>
             ) : null}
-            {category && post.node.data.categories[0].category.document ? (
+            {category && post.node.data.categories ? (
               <ResourceType>
                 {post.node.data.categories[0].category.document.data.name}
               </ResourceType>

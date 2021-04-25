@@ -12,6 +12,7 @@ import { Helmet } from 'react-helmet';
 const Grid = styled('section', {
   display: 'grid',
   gridTemplateColumns: 'repeat(12, 1fr)',
+  gridGap: '$3',
 });
 
 const Row = styled('section', {
@@ -33,37 +34,28 @@ const Guides: React.FC = ({ data }) => {
           <BlogList
             showFeaturePhoto
             posts={featureBlog.edges}
-            css={{
-              gridColumn: 'span 6',
-              '@md': { gridColumn: 'span 12' },
-            }}
+            css={{ gridColumn: 'span 6', '@md': { gridColumn: 'span 12' } }}
           />
         </Grid>
       </Container>
-      <Row>
+      {/* <Row>
         <Container>
           <Subheading>Learn</Subheading>
           <Grid>
             <BlogList
               className={dark}
               posts={learnBlog.edges}
-              css={{
-                gridColumn: 'span 6',
-                '@md': { gridColumn: 'span 12' },
-              }}
+              css={{ gridColumn: 'span 6', '@md': { gridColumn: 'span 12' } }}
             />
           </Grid>
         </Container>
-      </Row>
+      </Row> */}
       <Container>
         <Subheading>all</Subheading>
         <Grid>
           <BlogList
             posts={allBlog.edges}
-            css={{
-              gridColumn: 'span 6',
-              '@md': { gridColumn: 'span 12' },
-            }}
+            css={{ gridColumn: 'span 6', '@md': { gridColumn: 'span 12' } }}
           />
         </Grid>
       </Container>

@@ -5,8 +5,8 @@ import { ResourceTitle, Paragraph } from '@/components/common/TextStyles';
 import Link from '@/components/common/GatsbyLink';
 
 const Article = styled(Link, {
-  padding: '0rem 1rem 2rem 2rem',
-  gridGap: '2rem',
+  padding: '0 1rem 2rem 0',
+  gridGap: '$4',
   gridColumn: 'span 4',
   gridRow: 'span 3',
 });

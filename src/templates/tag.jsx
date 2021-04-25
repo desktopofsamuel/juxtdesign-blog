@@ -19,6 +19,7 @@ const AppGridRow = styled('section', {
   display: 'grid',
   gridTemplate: 'auto/repeat(12, 1fr)',
   gridGap: '$3',
+  padding: '$2 0',
 });
 
 const Header = styled('div', {

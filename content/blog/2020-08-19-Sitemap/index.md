@@ -1,10 +1,11 @@
 ---
 title: 'What is sitemap and how does it enhance user experience?'
 draft: false
-date: 2020-08-19T02:30:42.254Z
+date: 2020-08-11T02:30:42.254Z
 feature: true
 tags:
   - sitemap
+featurePhoto: './opengraph.png'
 ---
 
 # What is sitemap and how does it enhance user experience?

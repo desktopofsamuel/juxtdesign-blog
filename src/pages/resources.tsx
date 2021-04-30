@@ -26,7 +26,7 @@ const ResourcesPage = ({ data }) => {
   const { app } = data;
   return (
     <Layout>
-      <Container>
+      <Container size="medium">
         <PageTitle>Resources</PageTitle>
         <AppListWrapper>
           <AppList posts={app.edges} category />

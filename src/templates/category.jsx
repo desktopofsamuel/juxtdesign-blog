@@ -15,7 +15,7 @@ const CategoryTemplate = ({ pageContext, data }) => {
 
   return (
     <Layout>
-      <Container size="small">
+      <Container size="medium">
         <Helmet title={title} />
         <SEO pageTitle={title} postPath={slug} />
         <PageTitle>Posts in {category}</PageTitle>

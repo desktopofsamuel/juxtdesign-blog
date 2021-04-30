@@ -22,7 +22,7 @@ const Default: React.FC<PageProps> = ({ pageContext, children, path }) => {
         <title>{`${pageContext.frontmatter.title} | ${config.siteTitle} `}</title>
       </Helmet>
       <SEO postPath={path} />
-      <Container>{children}</Container>
+      <Container size="medium">{children}</Container>
     </Layout>
   );
 };

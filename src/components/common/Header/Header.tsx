@@ -138,8 +138,8 @@ const Header: React.FC = () => (
     </Link>
     <NavItem to="/guides/" activeClassName="nav-item-active">
       <p>Guides ›</p>
-      <Submenu>
-        <SubMenuItem to="/why-designers-need-a-personal-website/">
+      {/* <Submenu>
+        <SubMenuItem to="/posts/why-designers-need-a-personal-website/">
           <StaticImage
             as="span"
             alt=""
@@ -149,7 +149,7 @@ const Header: React.FC = () => (
           />
           <p>Personal Website</p>
         </SubMenuItem>
-        <SubMenuItem to="/3-quick-wins-to-make-your-website-accessible/">
+        <SubMenuItem to="/posts/3-quick-wins-to-make-your-website-accessible/">
           <StaticImage
             as="span"
             alt=""
@@ -159,7 +159,7 @@ const Header: React.FC = () => (
           />
           <p>Accessibility</p>
         </SubMenuItem>
-        <SubMenuItem to="/">
+        <SubMenuItem to="/posts/how-do-you-save-your-inspirations/">
           <StaticImage
             as="span"
             alt=""
@@ -169,7 +169,7 @@ const Header: React.FC = () => (
           />
           <p>How to prepare for an interview</p>
         </SubMenuItem>
-        <SubMenuItem to="/guides">
+        <SubMenuItem to="/guides/">
           <StaticImage
             as="span"
             alt=""
@@ -179,7 +179,7 @@ const Header: React.FC = () => (
           />
           <p>More blog</p>
         </SubMenuItem>
-      </Submenu>
+      </Submenu> */}
     </NavItem>
     <NavItem to="/about/" activeClassName="nav-item-active">
       About

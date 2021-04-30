@@ -1,4 +1,20 @@
+const urljoin = require('url-join');
+const config = require('./static/SiteConfig');
+
 module.exports = {
+  pathPrefix: config.pathPrefix,
+  siteMetadata: {
+    siteUrl: urljoin(config.siteUrl, config.pathPrefix),
+    rssMetadata: {
+      site_url: urljoin(config.siteUrl, config.pathPrefix),
+      feed_url: urljoin(config.siteUrl, config.pathPrefix, config.siteRss),
+      title: config.siteTitle,
+      description: config.siteDescription,
+      image_url: `${urljoin(config.siteUrl, config.pathPrefix)}/favicon.png`,
+      author: config.userName,
+      copyright: config.copyright,
+    },
+  },
   // Since `gatsby-plugin-typescript` is automatically included in Gatsby you
   // don't need to define it here (just if you need to change the options)
   plugins: [
@@ -37,6 +53,7 @@ module.exports = {
         path: `${__dirname}/static/`,
       },
     },
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {

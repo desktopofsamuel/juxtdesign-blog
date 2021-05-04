@@ -25,7 +25,7 @@ const Item = styled(Link, {
 
 const CategoryItem = ({ categoryNode }) => (
   <Item
-    to={`/tags/${kebabCase(categoryNode.node.uid)}`}
+    to={`/tags/${kebabCase(categoryNode.node.uid)}/`}
     key={categoryNode.node.data.name}
     target="_blank"
   >

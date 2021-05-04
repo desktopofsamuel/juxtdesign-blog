@@ -1,13 +1,14 @@
 import React from 'react';
-import { PageProps, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import { styled, dark } from 'gatsby-theme-stitches/src/stitches.config';
 import Container from '@/components/common/Container';
 import Layout from '@/components/common/Layout';
 import BlogList from '@/components/BlogList';
+import BlogDetail from '@/components/BlogDetail';
 import { Subheading } from '@/components/common/TextStyles';
+import { Helmet } from 'react-helmet';
 import SEO from '../components/common/SEO';
 import config from '../../static/SiteConfig';
-import { Helmet } from 'react-helmet';
 
 const Grid = styled('section', {
   display: 'grid',
@@ -50,12 +51,12 @@ const Guides: React.FC = ({ data }) => {
           </Grid>
         </Container>
       </Row> */}
-      <Container>
+      <Container size="large">
         <Subheading>all</Subheading>
         <Grid>
-          <BlogList
+          <BlogDetail
             posts={allBlog.edges}
-            css={{ gridColumn: 'span 6', '@md': { gridColumn: 'span 12' } }}
+            css={{ gridColumn: 'span 12', '@md': { gridColumn: 'span 12' } }}
           />
         </Grid>
       </Container>
@@ -73,7 +74,7 @@ export const pagequery = graphql`
     ) {
       edges {
         node {
-          ...post
+          ...list
         }
       }
     }

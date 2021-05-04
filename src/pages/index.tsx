@@ -65,7 +65,7 @@ const Landing = ({ data }: Props) => {
       <SEO postPath="/" />
       <Container>
         <Row>
-          <BlogList posts={blog.edges} />
+          <BlogList posts={blog.edges} showFeaturePhoto />
         </Row>
         <Row>
           <Block css={{ gridColumn: 'span 3', '@md': { display: 'none' } }}>
@@ -107,12 +107,12 @@ export const pageQuery = graphql`
     }
     blog: allMdx(
       sort: { order: DESC, fields: frontmatter___date }
-      limit: 6
+      limit: 3
       filter: { frontmatter: { category: { ne: "Learn" } } }
     ) {
       edges {
         node {
-          ...post
+          ...list
         }
       }
     }

@@ -4,7 +4,7 @@ export const postFragment = graphql`
   fragment post on Mdx {
     body
     timeToRead
-    excerpt(pruneLength: 250)
+    excerpt(pruneLength: 500)
     frontmatter {
       title
       date(formatString: "MMM DD, YYYY", locale: "en")
@@ -16,11 +16,11 @@ export const postFragment = graphql`
           gatsbyImageData(layout: FULL_WIDTH)
         }
       }
+      url
     }
     fields {
       slug
       date
-      template
     }
     headings {
       depth

@@ -1,6 +1,8 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
 import Container from '@/components/common/Container';
+import FooterForm from './FooterForm';
 import GatsbyLink from './GatsbyLink';
 
 const FooterContainer = styled('footer', {
@@ -54,11 +56,11 @@ const Footer: React.FC = () => (
       <FooterGrid>
         <FooterLeft>
           <Wrapper>
-            <Title>Hi</Title>
             <Paragraph>
-              Sign up for our nice emails. Don't worry - unlike plants, we know
-              there's such a thing as too many emails.{' '}
+              Sign up for our bi-monthly emails. Don't worry - only the best
+              content will be delivered to your inbox.{' '}
             </Paragraph>
+            <FooterForm />
           </Wrapper>
         </FooterLeft>
         <FooterRight>

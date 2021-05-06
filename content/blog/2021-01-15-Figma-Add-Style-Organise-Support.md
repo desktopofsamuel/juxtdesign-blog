@@ -9,7 +9,6 @@ tags:
   - figma
   - color
   - design system
-feature: true
 ---
 
 You can now group Figma styles in collapsible sections, organise your color palettes are way easier.

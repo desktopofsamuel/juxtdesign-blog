@@ -80,7 +80,7 @@ const Header: React.FC = () => (
     <NavItem to="/resources/" activeClassName="nav-item-active">
       <p>Categories ›</p>
       <Submenu>
-        <SubMenuItem to="/tags/career/">
+        <SubMenuItem to="/tags/careers/">
           <StaticImage
             as="span"
             alt=""

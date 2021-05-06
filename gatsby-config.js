@@ -32,6 +32,7 @@ module.exports = {
         ],
       },
     },
+
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -53,7 +54,6 @@ module.exports = {
         path: `${__dirname}/static/`,
       },
     },
-    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
@@ -78,8 +78,101 @@ module.exports = {
         // htmlSerializer: () => prismicHtmlSerializer,
       },
     },
-    `gatsby-plugin-image`,
+    'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    // 'gatsby-plugin-sitemap',
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        // output: `/sitemap.xml`,
+        // Exclude specific pages or groups of pages using glob parameters
+        // See: https://github.com/isaacs/minimatch
+        // The example below will exclude the single `path/to/page` and all routes beginning with `category`
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+        }`,
+        serialize: ({ site, allSitePage }) => {
+          let pages = [];
+          allSitePage.edges.map((edge) => {
+            pages.push({
+              url: site.siteMetadata.siteUrl + edge.node.path,
+              changefreq: `daily`,
+              priority: 0.7,
+            });
+          });
+          return pages;
+        },
+      },
+    },
+    // {
+    //   resolve: `gatsby-plugin-advanced-sitemap`,
+    //   options: {
+    //     // 1 query for each data type
+    //     query: `
+    //       {
+    //         allMdx {
+    //           edges {
+    //             node {
+    //               fields {
+    //                 slug
+    //               }
+    //               id
+    //               frontmatter {
+    //                 title
+    //               }
+    //             }
+    //           }
+    //         }
+    //       }`,
+    //     // The filepath and name to Index Sitemap. Defaults to '/sitemap.xml'.
+    //     output: '/sitemap.xml',
+    //     mapping: {
+    //       allMdx: {
+    //         sitemap: `page`,
+    //       },
+    //     },
+    //     // Each data type can be mapped to a predefined sitemap
+    //     // Routes can be grouped in one of: posts, tags, authors, pages, or a custom name
+    //     // The default sitemap - if none is passed - will be pages
+    //     // allSitePage: {
+    //     //   sitemap: `page`,
+    //     //   // Add a query level prefix to slugs, Don't get confused with global path prefix from Gatsby
+    //     //   // This will add a prefix to this perticular sitemap only
+    //     //   prefix: 'page/',
+    //     //   // Custom Serializer
+    //     // },
+    //     // allGhostTag: {
+    //     //     sitemap: `tags`,
+    //     // },
+    //     // allGhostAuthor: {
+    //     //     sitemap: `authors`,
+    //     // },
+    //     // allGhostPage: {
+    //     //     sitemap: `pages`,
+    //     // },
+    //     // },
+    //     exclude: [
+    //       `/dev-404-page`,
+    //       `/404`,
+    //       `/404.html`,
+    //       `/offline-plugin-app-shell-fallback`,
+    //     ],
+    //     createLinkInHead: false, // optional: create a link in the `<head>` of your site
+    //     addUncaughtPages: false, // optional: will fill up pages that are not caught by queries and mapping and list them under `sitemap-pages.xml`
+    //   },
+    // },
   ],
 };

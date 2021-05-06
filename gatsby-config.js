@@ -117,62 +117,131 @@ module.exports = {
         },
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-advanced-sitemap`,
-    //   options: {
-    //     // 1 query for each data type
-    //     query: `
-    //       {
-    //         allMdx {
-    //           edges {
-    //             node {
-    //               fields {
-    //                 slug
-    //               }
-    //               id
-    //               frontmatter {
-    //                 title
-    //               }
-    //             }
-    //           }
-    //         }
-    //       }`,
-    //     // The filepath and name to Index Sitemap. Defaults to '/sitemap.xml'.
-    //     output: '/sitemap.xml',
-    //     mapping: {
-    //       allMdx: {
-    //         sitemap: `page`,
-    //       },
-    //     },
-    //     // Each data type can be mapped to a predefined sitemap
-    //     // Routes can be grouped in one of: posts, tags, authors, pages, or a custom name
-    //     // The default sitemap - if none is passed - will be pages
-    //     // allSitePage: {
-    //     //   sitemap: `page`,
-    //     //   // Add a query level prefix to slugs, Don't get confused with global path prefix from Gatsby
-    //     //   // This will add a prefix to this perticular sitemap only
-    //     //   prefix: 'page/',
-    //     //   // Custom Serializer
-    //     // },
-    //     // allGhostTag: {
-    //     //     sitemap: `tags`,
-    //     // },
-    //     // allGhostAuthor: {
-    //     //     sitemap: `authors`,
-    //     // },
-    //     // allGhostPage: {
-    //     //     sitemap: `pages`,
-    //     // },
-    //     // },
-    //     exclude: [
-    //       `/dev-404-page`,
-    //       `/404`,
-    //       `/404.html`,
-    //       `/offline-plugin-app-shell-fallback`,
-    //     ],
-    //     createLinkInHead: false, // optional: create a link in the `<head>` of your site
-    //     addUncaughtPages: false, // optional: will fill up pages that are not caught by queries and mapping and list them under `sitemap-pages.xml`
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        setup(ref) {
+          const ret = ref.query.site.siteMetadata.rssMetadata;
+          ret.allMdx = ref.query.allMdx;
+          ret.generator = 'GatsbyJS Advanced Starter';
+          return ret;
+        },
+        query: `
+        {
+          site {
+            siteMetadata {
+              rssMetadata {
+                site_url
+                feed_url
+                title
+                description
+                image_url
+                copyright
+                author  
+              }
+            }
+          }
+        }
+      `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) =>
+              allMdx.edges.map((edge) => ({
+                ...edge.node.frontmatter,
+                description: edge.node.excerpt,
+                date: edge.node.fields.date,
+                url: `${site.siteMetadata.rssMetadata.site_url}/posts${edge.node.fields.slug}/`,
+                guid: `${site.siteMetadata.rssMetadata.site_url}/posts${edge.node.fields.slug}/`,
+                author: site.siteMetadata.rssMetadata.author,
+                custom_elements: [{ 'content:encoded': edge.node.html }],
+              })),
+            query: `
+            {
+              allMdx(
+                limit: 1000,
+                sort: { order: DESC, fields: [fields___date] },
+                filter: {frontmatter: { draft: { ne: true }}, fileAbsolutePath: {regex: "/blog/"}}
+              ) {
+                edges {
+                  node {
+                    excerpt
+                    html
+                    timeToRead
+                    fields {
+                      slug
+                      date
+                    }
+                    frontmatter {
+                      title
+                      date
+                      category
+                      tags
+                    }
+                  }
+                }
+              }
+            }
+            `,
+            output: '/rss.xml/',
+            title: config.siteRssTitle,
+          },
+          // {
+          //   serialize: ({ query: { site, allMdx } }) =>
+          //     allMdx.edges.map((edge) => ({
+          //       ...edge.node.frontmatter,
+          //       description: edge.node.excerpt,
+          //       date: edge.node.fields.date,
+          //       url:
+          //         site.siteMetadata.rssMetadata.site_url +
+          //         edge.node.fields.slug,
+          //       guid:
+          //         site.siteMetadata.rssMetadata.site_url +
+          //         edge.node.fields.slug,
+          //       author: site.siteMetadata.rssMetadata.userName,
+          //       custom_elements: [
+          //         {
+          //           "content:encoded":
+          //             edge.node.html +
+          //             `<a href="` +
+          //             edge.node.frontmatter.url +
+          //             `" target="_blank" rel="noopener">Read More</a>`,
+          //         },
+          //       ],
+          //     })),
+          //   query: `
+          //   {
+          //     allMdx(
+          //       limit: 1000,
+          //       sort: { order: DESC, fields: [fields___date] },
+          //       filter: {frontmatter: { draft: { ne: true }}, fileAbsolutePath: {regex: "/digest/"}}
+          //     ) {
+          //       edges {
+          //         node {
+          //           excerpt
+          //           html
+          //           timeToRead
+          //           fields {
+          //             slug
+          //             date
+          //           }
+          //           frontmatter {
+          //             title
+          //             cover
+          //             date
+          //             category
+          //             tags
+          //             url
+          //           }
+          //         }
+          //       }
+          //     }
+          //   }
+          //   `,
+          //   output: "/digest-rss.xml",
+          //   title: "Digest of " + config.siteRssTitle,
+          // },
+        ],
+      },
+    },
   ],
 };

@@ -5,7 +5,8 @@ const config = {
   siteLogo: '/favicon.png', // Logo used for SEO and manifest.
   siteUrl: 'https://juxtdesign.co', // Domain of your website without pathPrefix.
   pathPrefix: '', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
-  siteDescription: 'A GatsbyJS stater with Advanced design in mind.', // Website description used for RSS feeds/meta description tag.
+  siteDescription:
+    'One stop guide and resources for product design, UI/UX design.', // Website description used for RSS feeds/meta description tag.
   siteKeywords: 'design, user experience, user interface, ui, ux, product',
   siteRss: '/rss.xml', // Path to the RSS file.
   siteRssTitle: 'JUXT Design', // Title of the RSS feed
@@ -26,14 +27,14 @@ const config = {
   userLinks: [
     {
       label: 'Instagram',
-      url: 'https://instagram.com/juxt_design',
+      url: 'https://instagram.com/juxtdesignco',
     },
     {
       label: 'Twitter',
-      url: 'https://twitter.com/juxt_design',
+      url: 'https://twitter.com/juxtdesignco',
     },
   ],
-  copyright: 'Copyright © 2020. JUXT Design', // Copyright string for the footer of the website and RSS feed.
+  copyright: 'Copyright © 2021. JUXT Design', // Copyright string for the footer of the website and RSS feed.
   themeColor: '#134042', // Used for setting manifest and progress theme colors.
   backgroundColor: '#e0e0e0', // Used for setting manifest background color.
   menu: [

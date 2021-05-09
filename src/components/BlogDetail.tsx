@@ -9,6 +9,7 @@ import {
 } from '@/components/common/TextStyles';
 import Link from '@/components/common/GatsbyLink';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { Button } from './Button';
 
 const Article = styled('div', {
   padding: '0 1rem 2rem 0',

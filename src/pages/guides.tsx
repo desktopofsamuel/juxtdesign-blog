@@ -28,7 +28,7 @@ const Guides: React.FC = ({ data }) => {
   return (
     <Layout>
       <Helmet title={title} />
-      <SEO postPath="/guides" pageTitle={title} />
+      <SEO postPath="/guides/" pageTitle={title} />
       <Container>
         <Subheading>Featured</Subheading>
         <Grid>

@@ -9,6 +9,7 @@ import SEO from '../components/common/SEO';
 import config from '../../static/SiteConfig';
 import { Helmet } from 'react-helmet';
 import AppList from '@/components/AppList';
+import { Button } from '@/components/Button';
 
 const AppListWrapper = styled('div', {
   padding: '$4 0',
@@ -24,10 +25,14 @@ const AppListWrapper = styled('div', {
 
 const ResourcesPage = ({ data }) => {
   const { app } = data;
+  const title = `Resources| ${config.siteTitle}`;
   return (
     <Layout>
+      <Helmet title={title} />
+      <SEO postPath="/resources/" pageTitle={title} />
       <Container size="medium">
         <PageTitle>Resources</PageTitle>
+        <Button>Twitter</Button>
         <AppListWrapper>
           <AppList posts={app.edges} category />
         </AppListWrapper>

@@ -15,7 +15,7 @@ export const listFragment = graphql`
       feature
       featurePhoto {
         childImageSharp {
-          gatsbyImageData(layout: FULL_WIDTH)
+          gatsbyImageData(layout: CONSTRAINED, width: 800, quality: 80)
         }
       }
       url

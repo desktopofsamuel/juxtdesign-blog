@@ -11,7 +11,6 @@ export const {
   theme: {
     colors: {
       // Token
-
       green100: '#F1F9F8',
       green500: '#025050',
       red500: '#FF6347',

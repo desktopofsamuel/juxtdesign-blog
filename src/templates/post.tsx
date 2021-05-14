@@ -19,9 +19,10 @@ const Grid = styled('div', {
   display: 'grid',
   // gridTemplateColumns: 'minmax(24px, 1fr) 8fr minmax(24px, 1fr)',
   gridTemplateColumns: '1fr 1fr 1fr 1fr',
-  gap: '5vw',
+  // gap: '5vw',
+  rowGap: '$2',
 
-  '@sm': {
+  '@md': {
     gridTemplateColumns: '1fr 1fr',
   },
 });

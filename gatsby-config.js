@@ -27,7 +27,12 @@ module.exports = {
         lessBabel: true,
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
-          'gatsby-remark-images',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              linkImagesToOriginal: false,
+            },
+          },
           'gatsby-remark-unwrap-images',
         ],
       },

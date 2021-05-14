@@ -65,7 +65,7 @@ const Landing = ({ data }: Props) => {
       <SEO postPath="/" />
       <Container>
         <Row>
-          <BlogList posts={blog.edges} showFeaturePhoto />
+          <BlogList posts={blog.edges} showFeaturePhoto showDate />
         </Row>
         <Row>
           <Block css={{ gridColumn: 'span 3', '@md': { display: 'none' } }}>

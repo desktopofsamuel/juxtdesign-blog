@@ -17,12 +17,12 @@ const Grid = styled('section', {
 });
 
 const Row = styled('section', {
-  backgroundColor: '$secondary',
+  // backgroundColor: '$secondary',
   padding: '$4 0',
 });
 
 const Guides: React.FC = ({ data }) => {
-  const { featureBlog, allBlog, learnBlog } = data;
+  const { featureBlog, allBlog, learnBlog, digestBlog } = data;
   const title = `Guides | ${config.siteTitle}`;
 
   return (
@@ -52,12 +52,15 @@ const Guides: React.FC = ({ data }) => {
         </Container>
       </Row> */}
       <Container size="large">
-        <Subheading>all</Subheading>
         <Grid>
-          <BlogDetail
-            posts={allBlog.edges}
-            css={{ gridColumn: 'span 12', '@md': { gridColumn: 'span 12' } }}
-          />
+          <Row css={{ gridColumn: 'span 8', '@md': { gridColumn: 'span 12' } }}>
+            <Subheading>All</Subheading>
+            <BlogDetail posts={allBlog.edges} />
+          </Row>
+          <Row css={{ gridColumn: 'span 3', '@md': { gridColumn: 'span 12' } }}>
+            <Subheading>News</Subheading>
+            <BlogList hideExcerpt showDate posts={digestBlog.edges} />
+          </Row>
         </Grid>
       </Container>
     </Layout>
@@ -78,9 +81,21 @@ export const pagequery = graphql`
         }
       }
     }
+    digestBlog: allMdx(
+      sort: { order: DESC, fields: frontmatter___date }
+      filter: { frontmatter: { template: { eq: "digest" } } }
+    ) {
+      edges {
+        node {
+          ...list
+        }
+      }
+    }
     allBlog: allMdx(
       sort: { order: DESC, fields: frontmatter___date }
-      filter: { frontmatter: { category: { ne: "Learn" } } }
+      filter: {
+        frontmatter: { category: { ne: "Learn" }, template: { ne: "digest" } }
+      }
     ) {
       edges {
         node {

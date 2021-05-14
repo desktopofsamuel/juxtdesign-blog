@@ -9,7 +9,7 @@ export const listFragment = graphql`
     timeToRead
     frontmatter {
       title
-      date(formatString: "MMM DD, YYYY", locale: "en")
+      date(fromNow: true)
       category
       tags
       feature
@@ -18,6 +18,7 @@ export const listFragment = graphql`
           gatsbyImageData(layout: CONSTRAINED, width: 800, quality: 80)
         }
       }
+      template
       url
     }
     excerpt

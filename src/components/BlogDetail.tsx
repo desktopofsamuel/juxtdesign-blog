@@ -36,7 +36,7 @@ const BlogDetail = ({ posts, css, showFeaturePhoto }) => {
   });
 
   return detailList.map((post) => (
-    <Article key={post.slug} css={css}>
+    <Article key={post.title} css={css}>
       {post.featurePhoto !== null && showFeaturePhoto ? (
         <GatsbyImage
           image={post.featurePhoto.childImageSharp.gatsbyImageData}

@@ -11,12 +11,16 @@ import Link from '@/components/common/GatsbyLink';
 
 const Article = styled(Link, {
   position: 'relative',
-  padding: '0 1rem 2rem 0',
+  padding: '0 $2 $2 0',
   display: 'grid',
   gridGap: '$2',
   gridColumn: 'span 4',
   gridRow: 'span 3',
+  marginBottom: '$4',
+  borderBottom: '1px solid $grey100',
 });
+
+const SParagraph = styled(Paragraph, {});
 
 const Image = styled(GatsbyImage, {
   position: 'relative',
@@ -52,6 +56,7 @@ type BlogListProps = {
   css?: any;
   showFeaturePhoto?: boolean;
   showDate?: boolean;
+  hideExcerpt?: boolean;
   className?: string;
 };
 
@@ -60,15 +65,17 @@ const defaultProps: BlogListProps = {
   post: {},
   showFeaturePhoto: false,
   showDate: false,
+  hideExcerpt: false,
   css: '',
   className: '',
 };
 
-const BlogList = ({ css, posts, showFeaturePhoto, showDate }) => {
+const BlogList = ({ css, posts, showFeaturePhoto, showDate, hideExcerpt }) => {
   const postList = [];
   posts.forEach((postEdge) => {
     postList.push({
-      slug: postEdge.node.fields.slug,
+      slug:
+        postEdge.node.frontmatter.url || `/posts${postEdge.node.fields.slug}/`,
       tags: postEdge.node.frontmatter.tags,
       featurePhoto: postEdge.node.frontmatter.featurePhoto,
       title: postEdge.node.frontmatter.title,
@@ -81,16 +88,16 @@ const BlogList = ({ css, posts, showFeaturePhoto, showDate }) => {
   });
 
   return postList.map((post) => (
-    <Article to={`/posts${post.slug}/`} key={post.slug} css={css}>
+    <Article to={post.slug} key={post.title} css={css}>
       {post.featurePhoto !== null && showFeaturePhoto ? (
         <Image
           image={post.featurePhoto.childImageSharp.gatsbyImageData}
           alt={post.title}
         />
       ) : null}
-      {showDate ? <PageMetadata type="label">{post.date}</PageMetadata> : null}
       <ResourceTitle>{post.title}</ResourceTitle>
-      <Paragraph>{post.excerpt}</Paragraph>
+      {hideExcerpt ? null : <SParagraph>{post.excerpt}</SParagraph>}
+      {showDate ? <PageMetadata type="label">{post.date}</PageMetadata> : null}
     </Article>
   ));
 };

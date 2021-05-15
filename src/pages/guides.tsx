@@ -59,7 +59,7 @@ const Guides: React.FC = ({ data }) => {
           </Row>
           <Row css={{ gridColumn: 'span 3', '@md': { gridColumn: 'span 12' } }}>
             <Subheading>News</Subheading>
-            <BlogList hideExcerpt showDate posts={digestBlog.edges} />
+            <BlogList showDate posts={digestBlog.edges} />
           </Row>
         </Grid>
       </Container>

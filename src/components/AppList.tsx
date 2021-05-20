@@ -4,6 +4,12 @@ import { styled } from 'gatsby-theme-stitches/src/stitches.config';
 import { ResourceTitle, ResourceType } from '@/components/common/TextStyles';
 import SliceZone from './SliceZone';
 
+const Image = styled('img', {
+  maxWidth: '100%',
+  width: '525px',
+  minHeight: '200px',
+});
+
 const ListItem = styled('div', {
   borderRadius: '8px',
   transition: '$default',
@@ -35,9 +41,8 @@ const AppList: React.FC = ({ posts, css, category, type }) => (
             //   style={{ maxWidth: '100%' }}
             //   alt={post.node.data.title.text}
             // />
-            <img
+            <Image
               src={`${post.node.data.feature.url}&w=550`}
-              style={{ maxWidth: '100%' }}
               alt={post.node.data.title.text}
               loading="lazy"
             />

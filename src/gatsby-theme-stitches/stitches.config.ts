@@ -20,11 +20,13 @@ export const {
       grey100: '#E5EAF0',
       grey500: '#575C63',
       grey700: '#272D2D',
+      blue500: '#0065e2',
+
       transparent: 'rgba(0,0,0,0)',
       // Alias
       primary: '$green500',
       primaryLighter: '$green100',
-      secondary: '$red500',
+      secondary: '$blue500',
       body: '$grey500',
       background: '$rice100',
       backgroundDarker: '$rice300',

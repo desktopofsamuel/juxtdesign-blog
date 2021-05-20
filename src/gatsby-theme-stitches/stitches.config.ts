@@ -26,7 +26,7 @@ export const {
       // Alias
       primary: '$green500',
       primaryLighter: '$green100',
-      secondary: '$blue500',
+      secondary: '#d13607',
       body: '$grey500',
       background: '$rice100',
       backgroundDarker: '$rice300',

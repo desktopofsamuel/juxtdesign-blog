@@ -1,5 +1,6 @@
 import React from 'react';
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
+// import { GatsbyImage } from 'gatsby-plugin-image';
 import { ResourceTitle, ResourceType } from '@/components/common/TextStyles';
 import SliceZone from './SliceZone';
 
@@ -29,8 +30,13 @@ const AppList: React.FC = ({ posts, css, category, type }) => (
       <ListItem key={post.node.uid} css={css}>
         <a target="_blank" rel="noreferrer" href={post.node.data.url.url}>
           {!!post.node.data && !!post.node.data.feature ? (
+            // <GatsbyImage
+            //   image={post.node.data.feature.childImageSharp.gatsbyImageData}
+            //   style={{ maxWidth: '100%' }}
+            //   alt={post.node.data.title.text}
+            // />
             <img
-              src={post.node.data.feature.url}
+              src={`${post.node.data.feature.url}&w=550`}
               style={{ maxWidth: '100%' }}
               alt={post.node.data.title.text}
             />

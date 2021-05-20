@@ -39,6 +39,7 @@ const AppList: React.FC = ({ posts, css, category, type }) => (
               src={`${post.node.data.feature.url}&w=550`}
               style={{ maxWidth: '100%' }}
               alt={post.node.data.title.text}
+              loading="lazy"
             />
           ) : null}
           <ContentWrapper>

@@ -1,6 +1,6 @@
 ---
 template: digest
-title: 'Figma Support Folders for Styles'
+title: 'Apple Announced Accessibility Updates for Apple Watch, iOS and more'
 draft: false
 date: 2021-05-20T02:30:42.254Z
 url: 'https://www.apple.com/newsroom/2021/05/apple-previews-powerful-software-updates-designed-for-people-with-disabilities/'

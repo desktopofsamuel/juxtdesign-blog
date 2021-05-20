@@ -32,7 +32,7 @@ const ResourcesPage = ({ data }) => {
       <SEO postPath="/resources/" pageTitle={title} />
       <Container size="medium">
         <PageTitle>Resources</PageTitle>
-        <Button>Twitter</Button>
+        {/* <Button>Twitter</Button> */}
         <AppListWrapper>
           <AppList posts={app.edges} category />
         </AppListWrapper>

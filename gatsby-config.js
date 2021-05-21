@@ -18,11 +18,19 @@ module.exports = {
   // Since `gatsby-plugin-typescript` is automatically included in Gatsby you
   // don't need to define it here (just if you need to change the options)
   plugins: [
+    'gatsby-remark-images',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'posts',
+        name: 'content',
         path: `${__dirname}/content/`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'page',
+        path: `${__dirname}/src/pages`,
       },
     },
     {
@@ -63,23 +71,24 @@ module.exports = {
         defaultLayouts: {
           default: require.resolve('./src/templates/default.tsx'),
         },
-        lessBabel: true,
         extensions: [`.mdx`, `.md`],
+
         gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-images',
             options: {
               linkImagesToOriginal: false,
               loading: 'lazy',
+              maxWidth: '1000',
             },
           },
+          'gatsby-remark-copy-linked-files',
         ],
       },
     },
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-remark-images',
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {

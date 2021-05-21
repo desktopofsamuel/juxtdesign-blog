@@ -10,19 +10,23 @@ type ProjectType = {
   title: string;
   description: string;
   url: string;
+  image: string;
 };
 
-const ProjectList = ({ data }: any) => (
-  <Wrapper>
-    {data.map((item: ProjectType) => (
-      <Wrapper key={item.title}>
-        <ResourceTitle>{item.title}</ResourceTitle>
-        <Paragraph>{item.description}</Paragraph>
-        <Link to={item.url} target="_blank">
-          Learn More
-        </Link>
-      </Wrapper>
-    ))}
-  </Wrapper>
-);
+const ProjectList = ({ data }: any) => {
+  return (
+    <Wrapper>
+      {data.map((item: ProjectType) => (
+        <Wrapper key={item.title}>
+          {/* <StaticImage src={item.image} alt={item.title} /> */}
+          <ResourceTitle>{item.title}</ResourceTitle>
+          <Paragraph>{item.description}</Paragraph>
+          <Link to={item.url} target="_blank">
+            Learn More
+          </Link>
+        </Wrapper>
+      ))}
+    </Wrapper>
+  );
+};
 export default ProjectList;

@@ -2,11 +2,13 @@
   {
     "title": "Keystrokes",
     "description": "Figma auto-layout template that creates keyboard shortcut with ease.",
-    "url": "https://figma.com"
+    "url": "https://figma.com",
+    "image": "https://together-at-home.netlify.app/static/OpenGraphImage-e9b7a9386e28a2f848b8b05147b9a226.png"
   },
   {
     "title": "Together At Home Club",
     "description": "Collection of free and discounted resources to keep you staying at home during COVID-19 outbreak.",
-    "url": "https://together-at-home.netlify.app/?ref=juxtdesignco"
+    "url": "https://together-at-home.netlify.app/?ref=juxtdesignco",
+    "image": "https://together-at-home.netlify.app/static/OpenGraphImage-e9b7a9386e28a2f848b8b05147b9a226.png"
   }
 ]

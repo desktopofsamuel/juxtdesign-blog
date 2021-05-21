@@ -19,6 +19,7 @@ const Grid = styled('section', {
 const Row = styled('section', {
   // backgroundColor: '$secondary',
   padding: '$4 0',
+  overflow: 'auto',
 });
 
 const Guides: React.FC = ({ data }) => {
@@ -94,6 +95,7 @@ export const pagequery = graphql`
     allBlog: allMdx(
       sort: { order: DESC, fields: frontmatter___date }
       filter: {
+        fileAbsolutePath: { regex: "/content/" }
         frontmatter: { category: { ne: "Learn" }, template: { ne: "digest" } }
       }
     ) {

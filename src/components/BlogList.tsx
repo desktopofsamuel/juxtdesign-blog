@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
-import { StaticImage, GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import {
   ResourceTitle,
   Paragraph,

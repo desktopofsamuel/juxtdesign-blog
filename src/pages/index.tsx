@@ -108,7 +108,10 @@ export const pageQuery = graphql`
     blog: allMdx(
       sort: { order: DESC, fields: frontmatter___date }
       limit: 3
-      filter: { frontmatter: { category: { ne: "Learn" } } }
+      filter: {
+        fileAbsolutePath: { regex: "/content/" }
+        frontmatter: { category: { ne: "Learn" } }
+      }
     ) {
       edges {
         node {

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
-import GatsbyImage from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const Content = styled('div', {
   paddingTop: '$2',

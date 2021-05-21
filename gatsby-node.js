@@ -196,6 +196,12 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
+
+  // Create Tag List Page
+  createPage({
+    path: '/tags',
+    component: path.resolve('src/templates/tag-list.tsx'),
+  });
 };
 
 exports.onCreateWebpackConfig = ({ actions }) => {

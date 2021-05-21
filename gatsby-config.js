@@ -19,26 +19,6 @@ module.exports = {
   // don't need to define it here (just if you need to change the options)
   plugins: [
     {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        defaultLayouts: {
-          default: require.resolve('./src/templates/default.tsx'),
-        },
-        lessBabel: true,
-        extensions: [`.mdx`, `.md`],
-        gatsbyRemarkPlugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              linkImagesToOriginal: false,
-            },
-          },
-          'gatsby-remark-unwrap-images',
-        ],
-      },
-    },
-
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'posts',
@@ -55,15 +35,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'assets',
+        name: 'static',
         path: `${__dirname}/static/`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-google-tagmanager',
-      options: {
-        id: 'GTM-KMZKK6Q',
-        defer: true,
       },
     },
     {
@@ -84,10 +57,36 @@ module.exports = {
         // htmlSerializer: () => prismicHtmlSerializer,
       },
     },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve('./src/templates/default.tsx'),
+        },
+        lessBabel: true,
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              linkImagesToOriginal: false,
+              loading: 'lazy',
+            },
+          },
+        ],
+      },
+    },
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    // 'gatsby-plugin-sitemap',
+    'gatsby-remark-images',
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-KMZKK6Q',
+        defer: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {

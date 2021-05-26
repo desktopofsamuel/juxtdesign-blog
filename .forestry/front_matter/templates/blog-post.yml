@@ -17,3 +17,5 @@ fields:
 - type: file
   name: featurePhoto
   label: featurePhoto
+pages:
+- content/blog/accessibility-toolkit-stark-launched-chrome-extension.md

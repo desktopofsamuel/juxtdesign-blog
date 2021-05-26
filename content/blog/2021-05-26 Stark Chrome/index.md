@@ -6,7 +6,7 @@ tags:
   - stark
 feature: false
 draft: false
-socialImage: './stark-chrome.jpg'
+featurePhoto: './stark-chrome.jpg'
 ---
 
 Stark has been a very helpful tool for creating accessible designs. The all-in-one accessibility toolkit has launched [Chrome version](https://chrome.google.com/webstore/detail/stark/fkfaapnmfippddbeemjjbclenphooipm) after focusing on design platforms like Figma, Sketch and Adobe XD.

@@ -4,7 +4,7 @@ export const postFragment = graphql`
   fragment post on Mdx {
     body
     timeToRead
-    excerpt(pruneLength: 500)
+    excerpt(pruneLength: 350)
     frontmatter {
       title
       date(formatString: "MMM DD, YYYY", locale: "en")

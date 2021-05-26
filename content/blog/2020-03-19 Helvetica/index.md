@@ -1,11 +1,11 @@
 ---
 template: digest
-title: "Weekly Design Documentaries Free Streaming — Helvetica"
+title: 'Weekly Design Documentaries Free Streaming — Helvetica'
 draft: false
 date: 2020-03-19T02:30:42.254Z
-socialImage: /media/Helvetica-film.jpeg
-externalImage: "https://upload.wikimedia.org/wikipedia/en/d/d4/Helvetica-film.JPG"
-url: "https://www.ohyouprettythings.com/free"
+socialImage: './helvetica-film.jpg'
+externalImage: 'https://upload.wikimedia.org/wikipedia/en/d/d4/Helvetica-film.JPG'
+url: 'https://www.ohyouprettythings.com/free'
 tags:
   - typography
   - documentary

@@ -40,7 +40,7 @@ const globalStyles = global({
   },
 
   img: {
-    maxWidth: '$space$small',
+    maxWidth: '100%',
   },
 
   code: {

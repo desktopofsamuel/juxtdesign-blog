@@ -46,6 +46,9 @@ export const {
       4: '48px',
       5: '60px',
       6: '120px',
+      small: '800px',
+      medium: '1000px',
+      large: '1440px',
     },
     fontSizes: {
       1: '14px',

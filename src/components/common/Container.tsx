@@ -8,13 +8,13 @@ const Wrapper = styled('main', {
   variants: {
     size: {
       large: {
-        maxWidth: '1440px',
+        maxWidth: '$space$large',
       },
       medium: {
-        maxWidth: '1000px',
+        maxWidth: '$space$medium',
       },
       small: {
-        maxWidth: '800px',
+        maxWidth: '$space$small',
       },
     },
   },

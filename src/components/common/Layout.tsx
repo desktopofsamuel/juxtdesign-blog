@@ -38,6 +38,15 @@ const globalStyles = global({
     textAlign: 'center',
     color: '$primary',
   },
+
+  img: {
+    maxWidth: '$space$small',
+  },
+
+  code: {
+    backgroundColor: '$white100',
+    color: '$grey500',
+  }
 });
 
 const Layout: React.FC = ({ children }) => {

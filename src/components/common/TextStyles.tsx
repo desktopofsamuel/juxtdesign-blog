@@ -2,13 +2,13 @@ import { styled } from 'gatsby-theme-stitches/src/stitches.config';
 
 export const PageTitle = styled('h1', {
   margin: '0',
-  fontSize: '$8',
+  fontSize: '$7',
   fontFamily: '$sans',
   fontWeight: '$bold',
   color: '$onBackground',
 
   '@md': {
-    fontSize: '$7',
+    fontSize: '$6',
   },
 });
 

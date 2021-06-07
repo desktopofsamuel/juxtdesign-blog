@@ -86,12 +86,33 @@ const FooterForm = () => (
         <PageMetadata css={{ color: '$green100' }} type="label" htmlFor="email">
           Email Address
         </PageMetadata>
-        <Field validate={validateEmail} id="email" name="email" type="email" />{' '}
+        <Field
+          validate={validateEmail}
+          id="email"
+          name="email"
+          type="email"
+          style={{
+            height: '30px',
+            background: 'none',
+            border: '1px solid var(--colors-background)',
+            width: '100%',
+          }}
+        />{' '}
         {errors.email && touched.email && <span>{errors.email}</span>}
         <PageMetadata css={{ color: '$green100' }} type="label" htmlFor="name">
           Name
         </PageMetadata>
-        <Field id="name" name="name" type="Name" />
+        <Field
+          id="name"
+          name="name"
+          type="Name"
+          style={{
+            height: '30px',
+            background: 'none',
+            border: '1px solid var(--colors-background)',
+            width: '100%',
+          }}
+        />
         <Button color="onPrimary" type="submit" disabled={isSubmitting}>
           Submit
         </Button>

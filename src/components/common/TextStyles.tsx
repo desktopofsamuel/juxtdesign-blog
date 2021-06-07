@@ -35,6 +35,7 @@ export const ResourceType = styled('h3', {
 });
 
 export const Subheading = styled('h3', {
+  color: '$body',
   margin: '$3 0',
   fontSize: '$3',
   textTransform: 'uppercase',

@@ -3,6 +3,7 @@ import { global } from 'gatsby-theme-stitches/src/stitches.config';
 import Header from '@/components/common/Header/Header';
 import '../../../static/typography.css';
 import Footer from '@/components/common/Footer';
+import { ThemeProvider } from '@/components/ThemeContext';
 
 const globalStyles = global({
   html: {
@@ -17,6 +18,7 @@ const globalStyles = global({
 
   body: {
     margin: '0',
+    color: '$body',
   },
 
   a: {
@@ -46,17 +48,17 @@ const globalStyles = global({
   code: {
     backgroundColor: '$white100',
     color: '$grey500',
-  }
+  },
 });
 
 const Layout: React.FC = ({ children }) => {
   globalStyles();
   return (
-    <>
+    <ThemeProvider>
       <Header />
       {children}
       <Footer />
-    </>
+    </ThemeProvider>
   );
 };
 

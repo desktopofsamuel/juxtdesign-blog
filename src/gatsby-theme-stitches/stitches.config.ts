@@ -95,12 +95,13 @@ export const {
 //   },
 // });
 
-export const dark = theme('dark-theme', {
+export const darkTheme = theme('dark-theme', {
   colors: {
-    primary: '$white500',
+    primary: '$white100',
     secondary: '$blue500',
-    background: 'grey700',
+    background: '$grey700',
     body: '$white100',
     onBackground: '$white100',
+    border: '$grey500',
   },
 });

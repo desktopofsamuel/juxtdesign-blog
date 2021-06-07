@@ -2,6 +2,7 @@ import React from 'react';
 import Link from '@/components/common/GatsbyLink';
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
 import { StaticImage } from 'gatsby-plugin-image';
+import DarkToggle from '@/components/DarkToggle';
 import DarkModeToggle from './DarkModeToggle';
 import SiteLogo from '~/static/favicon.svg';
 import Submenu from './Submenu';
@@ -74,6 +75,7 @@ const SubMenuItem = styled(Link, {
 const Header: React.FC = () => (
   <Wrapper>
     <MobileNavItem to="/guides/">Guides</MobileNavItem>
+    {/* <DarkToggle /> */}
     <NavItem to="/" activeClassName="nav-item-active">
       Home
     </NavItem>

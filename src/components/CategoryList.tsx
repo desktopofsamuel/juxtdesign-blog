@@ -10,7 +10,7 @@ const Wrapper = styled('aside', {
 });
 
 const Item = styled(Link, {
-  color: '$primary',
+  color: '$body',
   textDecoration: 'none',
   transition: '$default',
   padding: '$2 0 $2 $2',

@@ -1,8 +1,57 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import { getCssString } from './src/gatsby-theme-stitches/stitches.config.ts';
+import {
+  darkTheme,
+  getCssString,
+} from './src/gatsby-theme-stitches/stitches.config.ts';
+
+function setColorsByTheme() {
+  const colorModeKey = '🔑';
+  const darkThemeClassName = '🌙';
+
+  const mql = window.matchMedia('(prefers-color-scheme: dark)');
+  const prefersDarkFromMQ = mql.matches;
+  const persistedPreference = localStorage.getItem(colorModeKey);
+
+  let colorMode = 'light';
+
+  const hasUsedToggle = typeof persistedPreference === 'string';
+
+  if (hasUsedToggle) {
+    colorMode = persistedPreference;
+  } else {
+    colorMode = prefersDarkFromMQ ? 'dark' : 'light';
+  }
+
+  let root = document.documentElement;
+  if (colorMode === 'dark') {
+    root.classList.add(darkThemeClassName);
+  }
+}
+
+const MagicScriptTag = () => {
+  const boundFn = String(setColorsByTheme)
+    .replace('🔑', 'color-mode')
+    .replace('🌙', darkTheme.className);
+
+  const calledFunction = `(${boundFn})()`;
+
+  return <script dangerouslySetInnerHTML={{ __html: calledFunction }} />;
+};
+
+const FallbackStyles = () => {
+  return (
+    <style
+      id="stitches"
+      dangerouslySetInnerHTML={{
+        __html: getCssString(),
+      }}
+    />
+  );
+};
 
 export const onRenderBody = ({
+  setPreBodyComponents,
   setHeadComponents,
   setHtmlAttributes,
   setBodyAttributes,
@@ -18,14 +67,8 @@ export const onRenderBody = ({
     helmet.script.toComponent(),
     helmet.style.toComponent(),
   ]);
-  setHeadComponents([
-    <style
-      id="stitches"
-      dangerouslySetInnerHTML={{
-        __html: getCssString(),
-      }}
-    />,
-  ]);
+  setPreBodyComponents(<MagicScriptTag key="magic-script-tag" />);
+  setHeadComponents(<FallbackStyles key="fallback-styles" />);
 };
 
 export const onPreRenderHTML = ({

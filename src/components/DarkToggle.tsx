@@ -1,15 +1,16 @@
 import React from 'react';
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
 import { ThemeContext } from '@/components/ThemeContext';
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
-const InvisibleButton = styled('button', {
-  background: 'none',
-  color: 'inherit',
-  border: 'none',
-  padding: '0 !important',
-  font: 'inherit',
-  cursor: 'pointer',
-});
+// const InvisibleButton = styled('button', {
+//   background: 'none',
+//   color: 'inherit',
+//   border: 'none',
+//   padding: '0 !important',
+//   font: 'inherit',
+//   cursor: 'pointer',
+// });
 
 const DarkToggle = () => {
   const { colorMode, setColorMode } = React.useContext(ThemeContext);
@@ -19,37 +20,25 @@ const DarkToggle = () => {
   }
 
   const nextColor = colorMode !== 'dark' ? 'dark' : 'light';
-  const SwitchToDark = colorMode === 'dark';
-  const SwitchToLight = colorMode === 'light';
+  const darkchecked = colorMode === 'dark';
   const title = `Activate ${nextColor} mode`;
 
   return (
-    <>
-      <ToggleButton
+    <Wrapper>
+      <DarkModeSwitch
         aria-label={title}
         title={title}
-        onClick={() => {
+        onChange={() => {
           setColorMode(nextColor);
         }}
-      >
-        ☾
-      </ToggleButton>
-      <ToggleButton
-        aria-label={title}
-        title={title}
-        onClick={() => {
-          setColorMode(nextColor);
-        }}
-      >
-        ☀
-      </ToggleButton>
-    </>
+        checked={darkchecked}
+      />
+    </Wrapper>
   );
 };
 
-const ToggleButton = styled(InvisibleButton, {
-  display: 'flex',
-  alignItems: 'center',
+const Wrapper = styled('div', {
+  padding: '0 $3',
 });
 
 export default DarkToggle;

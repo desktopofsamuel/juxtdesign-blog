@@ -40,6 +40,7 @@ export const {
       border: '$grey100',
       codeBackground: '$rice300',
       spark: '$primary',
+      // Context
     },
     transitions: {
       default: ' 0.2s all ease-in-out',

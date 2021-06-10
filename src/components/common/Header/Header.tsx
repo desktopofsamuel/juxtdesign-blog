@@ -77,6 +77,7 @@ const Header: React.FC = () => (
   <Wrapper>
     <MobileNavItem to="/guides/">Guides</MobileNavItem>
     <DarkToggle />
+    {/* <DarkModeToggle /> */}
     <NavItem to="/" activeClassName="nav-item-active">
       Home
     </NavItem>

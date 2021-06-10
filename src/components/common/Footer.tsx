@@ -6,7 +6,7 @@ import FooterForm from './FooterForm';
 import GatsbyLink from './GatsbyLink';
 
 const FooterContainer = styled('footer', {
-  backgroundColor: '$primary',
+  backgroundColor: '$spark',
   color: '$onPrimary',
 });
 
@@ -41,6 +41,7 @@ const Wrapper = styled('div', {
 
 const Title = styled('h3', {
   fontSize: '$4',
+  color: '$white100',
 });
 
 const Paragraph = styled('p', {});

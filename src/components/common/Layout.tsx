@@ -21,6 +21,10 @@ const globalStyles = global({
     color: '$body',
   },
 
+  'h1, h2, h3, h4, h5, h6': {
+    color: '$onBackground',
+  },
+
   a: {
     textDecoration: 'none',
     color: '$primary',
@@ -46,7 +50,9 @@ const globalStyles = global({
   },
 
   code: {
-    backgroundColor: '$white100',
+    padding: '0 $1',
+    borderRadius: '8px',
+    backgroundColor: '$codeBackground',
     color: '$grey500',
   },
 });

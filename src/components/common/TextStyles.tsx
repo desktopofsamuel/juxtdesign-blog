@@ -62,7 +62,7 @@ export const PageMetadata = styled('p', {
         fontWeight: '$regular',
         fontSize: '$1',
         textTransform: 'uppercase',
-        color: '$grey500',
+        color: '$bodyLighter',
       },
       value: {
         fontWeight: '$bold',

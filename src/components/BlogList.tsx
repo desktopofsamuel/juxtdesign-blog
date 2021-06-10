@@ -17,7 +17,7 @@ const Article = styled(Link, {
   gridColumn: 'span 4',
   gridRow: 'span 3',
   marginBottom: '$4',
-  borderBottom: '1px solid $grey100',
+  borderBottom: '1px solid $border',
 });
 
 const SParagraph = styled(Paragraph, {});
@@ -45,7 +45,7 @@ const Image = styled(GatsbyImage, {
   },
 
   '&:hover::before': {
-    borderColor: '$grey100',
+    borderColor: '$border',
     transform: 'translate3d(8px,8px,0)',
   },
 });

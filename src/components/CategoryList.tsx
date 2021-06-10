@@ -19,7 +19,7 @@ const Item = styled(Link, {
   borderRight: '4px $transparent solid',
 
   '&:hover': {
-    backgroundColor: '$primaryLighter',
+    backgroundColor: '$onBackgroundHover',
     borderRight: '4px $primary solid',
   },
 });

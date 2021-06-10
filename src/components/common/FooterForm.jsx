@@ -98,7 +98,7 @@ const FooterForm = () => (
             width: '100%',
           }}
         />{' '}
-        {errors.email && touched.email && <span>{errors.email}</span>}
+        {errors.email && <span>{errors.email}</span>}
         <PageMetadata css={{ color: '$green100' }} type="label" htmlFor="name">
           Name
         </PageMetadata>

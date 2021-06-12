@@ -59,7 +59,7 @@ const Footer: React.FC = () => (
           <Wrapper>
             <Paragraph>
               Sign up for our bi-monthly emails. Don't worry - only the best
-              content will be delivered to your inbox.{' '}
+              design resources and tips will be delivered to you.{' '}
             </Paragraph>
             <FooterForm />
           </Wrapper>

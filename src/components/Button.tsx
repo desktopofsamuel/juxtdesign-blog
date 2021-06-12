@@ -2,14 +2,14 @@ import { styled } from 'gatsby-theme-stitches/src/stitches.config';
 
 export const Button = styled('button', {
   background: 'none',
-  padding: '$2 $3',
+  padding: '$2 $4',
   boxShadow: 'none',
   cursor: 'pointer',
   transition: '$default',
   fontSize: '$1',
   textTransform: 'uppercase',
 
-  borderRadius: '4px',
+  borderRadius: '36px',
   color: '$onBackground',
   fontFamily: '$sans',
 
@@ -27,7 +27,7 @@ export const Button = styled('button', {
   variants: {
     color: {
       onPrimary: {
-        border: '1px $grey100 solid',
+        border: '2px $grey100 solid',
         color: '$onPrimary',
 
         '&:hover': {

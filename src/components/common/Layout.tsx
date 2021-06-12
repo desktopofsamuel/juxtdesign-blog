@@ -57,8 +57,20 @@ const globalStyles = global({
   },
 
   input: {
+    width: '100%',
+    height: '30px',
+    background: 'none',
+    margin: '$1 0',
+    padding: '$1 $2',
     border: '2px solid $border',
     borderRadius: '8px',
+    color: '$body',
+    fontSize: '$2',
+    fontFamily: '$sans',
+
+    '&:focus': {
+      borderColor: '$onBackground',
+    },
   },
 });
 

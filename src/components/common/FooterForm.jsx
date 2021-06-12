@@ -94,7 +94,6 @@ const FooterForm = () => (
           style={{
             height: '30px',
             background: 'none',
-            border: '1px solid var(--colors-background)',
             width: '100%',
           }}
         />{' '}
@@ -109,7 +108,6 @@ const FooterForm = () => (
           style={{
             height: '30px',
             background: 'none',
-            border: '1px solid var(--colors-background)',
             width: '100%',
           }}
         />

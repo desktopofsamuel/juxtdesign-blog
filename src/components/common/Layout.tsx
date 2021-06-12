@@ -35,7 +35,7 @@ const globalStyles = global({
   },
 
   hr: {
-    border: '1px $grey100 solid',
+    border: '1px $border solid',
     margin: '$3 0',
   },
 
@@ -54,6 +54,11 @@ const globalStyles = global({
     borderRadius: '8px',
     backgroundColor: '$codeBackground',
     color: '$grey500',
+  },
+
+  input: {
+    border: '2px solid $border',
+    borderRadius: '8px',
   },
 });
 

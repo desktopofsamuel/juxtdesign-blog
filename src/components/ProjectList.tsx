@@ -1,10 +1,18 @@
 import React from 'react';
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
-// import { StaticImage } from 'gatsby-plugin-image';
+import { StaticImage } from 'gatsby-plugin-image';
 import { ResourceTitle, Paragraph } from '@/components/common/TextStyles';
 import Link from '@/components/common/GatsbyLink';
 
-const Wrapper = styled('div', {});
+const Grid = styled('section', {
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr',
+  gridGap: '$4',
+
+  '@md': {
+    gridTemplateColumns: '1fr',
+  },
+});
 
 type ProjectType = {
   title: string;
@@ -15,18 +23,16 @@ type ProjectType = {
 
 const ProjectList = ({ data }: any) => {
   return (
-    <Wrapper>
+    <Grid>
       {data.map((item: ProjectType) => (
-        <Wrapper key={item.title}>
-          {/* <StaticImage src={item.image} alt={item.title} /> */}
+        <Link to={item.url} target="_blank" key={item.title}>
+          {console.log(item)}
+          <img src={item.image} alt={item.title} />
           <ResourceTitle>{item.title}</ResourceTitle>
           <Paragraph>{item.description}</Paragraph>
-          <Link to={item.url} target="_blank">
-            Learn More
-          </Link>
-        </Wrapper>
+        </Link>
       ))}
-    </Wrapper>
+    </Grid>
   );
 };
 export default ProjectList;

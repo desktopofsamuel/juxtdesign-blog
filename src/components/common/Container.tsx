@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
 
 const Wrapper = styled('main', {
-  padding: '0 $2',
+  padding: '$2 $2 $6 $2',
   margin: '0 auto',
 
   variants: {

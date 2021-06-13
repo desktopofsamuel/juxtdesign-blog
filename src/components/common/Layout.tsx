@@ -64,7 +64,7 @@ const globalStyles = global({
     padding: '$1 $2',
     border: '2px solid $border',
     borderRadius: '8px',
-    color: '$body',
+    color: '$onPrimary',
     fontSize: '$2',
     fontFamily: '$sans',
 

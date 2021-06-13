@@ -4,8 +4,8 @@ import Airtable from 'airtable';
 import { PageMetadata } from '@/components/common/TextStyles';
 import { Button } from '@/components/Button';
 
-const base = new Airtable({ apiKey: 'keyfVdncmxXanjijI' }).base(
-  'appEQtq8ScqFUGgrL',
+const base = new Airtable({ apiKey: 'keyxjGKBYgUoSk20w' }).base(
+  'appd36zHAdgtdnmRX',
 );
 
 function validateEmail(value) {
@@ -51,7 +51,7 @@ const FooterForm = () => (
       name: '',
     }}
     onSubmit={async (values) => {
-      base('Subscriber').create(
+      base('Newsletter').create(
         [
           {
             fields: {

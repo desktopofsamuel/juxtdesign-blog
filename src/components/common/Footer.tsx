@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { styled } from 'gatsby-theme-stitches/src/stitches.config';
 import Container from '@/components/common/Container';
 import FooterForm from './FooterForm';
+import NewsletterForm from './NewsletterForm';
 import GatsbyLink from './GatsbyLink';
 
 const FooterContainer = styled('footer', {
@@ -61,7 +62,8 @@ const Footer: React.FC = () => (
               Sign up for our bi-monthly emails. Don't worry - only the best
               design resources and tips will be delivered to you.{' '}
             </Paragraph>
-            <FooterForm />
+            {/* <FooterForm /> */}
+            <NewsletterForm />
           </Wrapper>
         </FooterLeft>
         <FooterRight>

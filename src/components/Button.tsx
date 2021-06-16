@@ -18,13 +18,21 @@ export const Button = styled('button', {
     color: '$grey100',
   },
 
-  '&:disabled': {
-    backgroundColor: '$grey100',
-    color: '$grey700',
-    PointerEvent: 'none',
-  },
+  // '&:disabled': {
+  //   cursor: 'not-allowed',
+  //   backgroundColor: '$grey100',
+  //   color: '$grey700',
+  //   PointerEvent: 'none',
+  // },
 
   variants: {
+    // disabled: {
+    //   true: {
+    //     cursor: 'not-allowed',
+    //     opacity: '0.2',
+    //     PointerEvent: 'none',
+    //   },
+    // },
     color: {
       onPrimary: {
         border: '2px $grey100 solid',

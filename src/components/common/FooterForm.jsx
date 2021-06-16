@@ -99,6 +99,7 @@ const FooterForm = () => (
           css={{ marginTop: '$2' }}
         >
           Submit
+          {isValidating && 'Submitting'}
         </Button>
       </Form>
     )}

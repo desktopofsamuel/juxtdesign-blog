@@ -26,14 +26,18 @@ const Wrapper = styled('main', {
 
 type ContainerProps = {
   size?: 'small' | 'medium' | 'large';
+  css: string;
 };
 
 const defaultProps: ContainerProps = {
   size: 'large',
+  css: '',
 };
 
-const Container: React.FC<ContainerProps> = ({ children, size }) => (
-  <Wrapper size={size}>{children}</Wrapper>
+const Container: React.FC<ContainerProps> = ({ children, size, css }) => (
+  <Wrapper size={size} css={css}>
+    {children}
+  </Wrapper>
 );
 
 Container.defaultProps = defaultProps;

@@ -25,7 +25,7 @@ const Grid = styled('div', {
 
 const Submenu: React.FC = ({ children }) => (
   <Wrapper>
-    <Container size="medium">
+    <Container size="medium" css={{ paddingBottom: '$2' }}>
       <Grid>{children}</Grid>
     </Container>
   </Wrapper>

@@ -13,6 +13,7 @@ import { PageTitle, Subheading } from '@/components/common/TextStyles';
 import config from '../../static/SiteConfig';
 import SEO from '../components/common/SEO';
 import useTagsList from '../hooks/useTagList.js';
+import Tag from '@/components/common/Tag';
 
 const TagList = () => {
   const tags = useTagsList();
@@ -23,11 +24,7 @@ const TagList = () => {
         <PageTitle>Tags</PageTitle>
         <ul>
           {tags.map((tag) => (
-            <li key={tag.fieldValue}>
-              <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                {startCase(tag.fieldValue)} ({tag.totalCount})
-              </Link>
-            </li>
+            <Tag tag={tag} />
           ))}
         </ul>
       </Container>

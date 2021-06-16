@@ -12,8 +12,10 @@ import {
   PageMetadata,
 } from '@/components/common/TextStyles';
 import Link from '@/components/common/GatsbyLink';
+import Tag from '@/components/common/Tag';
 import SEO from '../components/common/SEO';
 import config from '../../static/SiteConfig';
+import kebabCase from 'lodash.kebabcase';
 
 const Grid = styled('div', {
   display: 'grid',

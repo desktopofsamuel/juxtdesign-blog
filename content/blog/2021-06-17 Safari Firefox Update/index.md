@@ -3,7 +3,7 @@ title: 'Lets talk about Safari & Firefox design revamp'
 date: 2021-06-17T02:30:12.254Z
 tags:
   - revamp
-  - user interface
+  - user-interface
 feature: true
 featurePhoto: './20210616-SafariFirefoxRevamp-OG.png'
 ---

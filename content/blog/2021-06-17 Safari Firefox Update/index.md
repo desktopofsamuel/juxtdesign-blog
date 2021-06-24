@@ -25,3 +25,5 @@ As for Mozilla's Firefox, changes stay at interface level. Tabs are elevated to 
 [Behind the design: A fresh new Firefox](https://blog.mozilla.org/en/products/firefox/new-firefox-coming-june-1/)
 
 What do you think and what change do you want for your browsers? [Safari](https://www.apple.com/macos/monterey-preview/) is coming this fall and [Firefox](https://www.mozilla.org/en-US/firefox/new/) update has launched on June 1.
+
+Stay tuned for further walkthrough and review!

@@ -70,7 +70,7 @@ const PostTemplate: React.FC<PageProps> = ({ data, pageContext }) => {
             <PageMetadata type="label">Share</PageMetadata>
             <PageMetadata type="value">
               <Link
-                to={`https://twitter.com/intent/tweet?text=${post.title}&url=${config.siteUrl}${postNode.fields.slug}`}
+                to={`https://twitter.com/intent/tweet?text=${post.title}&url=${config.siteUrl}/posts${postNode.fields.slug}`}
               >
                 Twitter
               </Link>

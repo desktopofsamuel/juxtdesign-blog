@@ -95,6 +95,7 @@ module.exports = {
       options: {
         id: 'GTM-KMZKK6Q',
         defer: true,
+        enableWebVitalsTracking: true,
       },
     },
     {

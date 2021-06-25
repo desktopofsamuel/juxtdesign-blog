@@ -25,12 +25,17 @@ const globalStyles = global({
     color: '$onBackground',
   },
 
+  'p a': {
+    textDecoration: 'underline',
+  },
+
   a: {
     textDecoration: 'none',
-    color: '$primary',
+    color: '$secondary',
 
     '&:hover': {
       textDecoration: 'underline',
+      textDecorationColor: '$primary',
     },
   },
 

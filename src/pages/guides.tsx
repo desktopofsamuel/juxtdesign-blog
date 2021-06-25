@@ -75,6 +75,7 @@ export const pagequery = graphql`
     featureBlog: allMdx(
       sort: { order: DESC, fields: frontmatter___date }
       filter: { frontmatter: { feature: { eq: true } } }
+      limit: 6
     ) {
       edges {
         node {

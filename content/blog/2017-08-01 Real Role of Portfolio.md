@@ -1,4 +1,5 @@
 ---
+template: digest
 title: 'What is the real role of a design portfolio website?'
 draft: false
 date: 2017-08-01T02:30:42.254Z

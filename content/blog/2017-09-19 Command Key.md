@@ -1,4 +1,5 @@
 ---
+template: digest
 title: 'Where did Command (⌘) symbol originated?'
 draft: false
 date: 2017-09-19T02:30:42.254Z

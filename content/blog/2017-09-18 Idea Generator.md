@@ -1,4 +1,5 @@
 ---
+template: digest
 title: 'Ideas Generator for Designers by MIT'
 draft: false
 date: 2017-09-18T02:30:42.254Z

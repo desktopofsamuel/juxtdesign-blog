@@ -201,61 +201,57 @@ module.exports = {
             output: '/rss.xml',
             title: config.siteRssTitle,
           },
-          // {
-          //   serialize: ({ query: { site, allMdx } }) =>
-          //     allMdx.edges.map((edge) => ({
-          //       ...edge.node.frontmatter,
-          //       description: edge.node.excerpt,
-          //       date: edge.node.fields.date,
-          //       url:
-          //         site.siteMetadata.rssMetadata.site_url +
-          //         edge.node.fields.slug,
-          //       guid:
-          //         site.siteMetadata.rssMetadata.site_url +
-          //         edge.node.fields.slug,
-          //       author: site.siteMetadata.rssMetadata.userName,
-          //       custom_elements: [
-          //         {
-          //           "content:encoded":
-          //             edge.node.html +
-          //             `<a href="` +
-          //             edge.node.frontmatter.url +
-          //             `" target="_blank" rel="noopener">Read More</a>`,
-          //         },
-          //       ],
-          //     })),
-          //   query: `
-          //   {
-          //     allMdx(
-          //       limit: 1000,
-          //       sort: { order: DESC, fields: [fields___date] },
-          //       filter: {frontmatter: { draft: { ne: true }}, fileAbsolutePath: {regex: "/digest/"}}
-          //     ) {
-          //       edges {
-          //         node {
-          //           excerpt
-          //           html
-          //           timeToRead
-          //           fields {
-          //             slug
-          //             date
-          //           }
-          //           frontmatter {
-          //             title
-          //             cover
-          //             date
-          //             category
-          //             tags
-          //             url
-          //           }
-          //         }
-          //       }
-          //     }
-          //   }
-          //   `,
-          //   output: "/digest-rss.xml",
-          //   title: "Digest of " + config.siteRssTitle,
-          // },
+          {
+            serialize: ({ query: { site, allMdx } }) =>
+              allMdx.edges.map((edge) => ({
+                ...edge.node.frontmatter,
+                description: edge.node.excerpt,
+                date: edge.node.fields.date,
+                url: `${site.siteMetadata.rssMetadata.site_url}/posts${edge.node.fields.slug}/`,
+                guid: `${site.siteMetadata.rssMetadata.site_url}/posts${edge.node.fields.slug}/`,
+                author: site.siteMetadata.rssMetadata.userName,
+                custom_elements: [
+                  {
+                    'content:encoded':
+                      edge.node.html +
+                      `<a href="` +
+                      edge.node.frontmatter.url +
+                      `" target="_blank" rel="noopener">Read More</a>`,
+                  },
+                ],
+              })),
+            query: `
+            {
+              allMdx(
+                limit: 1000,
+                sort: { order: DESC, fields: [fields___date] },
+                filter: {frontmatter: { draft: { ne: true }, template: { eq: "digest" }}},
+              ) {
+                edges {
+                  node {
+                    excerpt
+                    html
+                    timeToRead
+                    fields {
+                      slug
+                      date
+                    }
+                    frontmatter {
+                      template
+                      title
+                      date
+                      category
+                      tags
+                      url
+                    }
+                  }
+                }
+              }
+            }
+            `,
+            output: '/digest-rss.xml',
+            title: 'Digest of ' + config.siteRssTitle,
+          },
         ],
       },
     },

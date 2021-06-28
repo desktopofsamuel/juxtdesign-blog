@@ -4,6 +4,7 @@ import { styled, dark } from 'gatsby-theme-stitches/src/stitches.config';
 import Container from '@/components/common/Container';
 import Layout from '@/components/common/Layout';
 import BlogList from '@/components/BlogList';
+import BlogCardList from '@/components/BlogCardList';
 import BlogDetail from '@/components/BlogDetail';
 import { Subheading } from '@/components/common/TextStyles';
 import { Helmet } from 'react-helmet';
@@ -40,25 +41,25 @@ const Guides: React.FC = ({ data }) => {
           />
         </Grid>
       </Container>
-      {/* <Row>
-        <Container>
-          <Subheading>Learn</Subheading>
-          <Grid>
-            <BlogList
-              className={dark}
-              posts={learnBlog.edges}
-              css={{ gridColumn: 'span 6', '@md': { gridColumn: 'span 12' } }}
-            />
-          </Grid>
-        </Container>
-      </Row> */}
+
+      {/* <Container>
+        <Subheading>Learn</Subheading>
+        <Grid>
+          <BlogCardList
+            hideExcerpt
+            posts={learnBlog.edges}
+            css={{ gridColumn: 'span 3', '@md': { gridColumn: 'span 6' } }}
+          />
+        </Grid>
+      </Container> */}
+
       <Container size="large">
         <Grid>
           <Row css={{ gridColumn: 'span 8', '@md': { gridColumn: 'span 12' } }}>
             <Subheading>All</Subheading>
             <BlogDetail posts={allBlog.edges} />
           </Row>
-          <Row css={{ gridColumn: 'span 3', '@md': { gridColumn: 'span 12' } }}>
+          <Row css={{ gridColumn: 'span 4', '@md': { gridColumn: 'span 12' } }}>
             <Subheading>News</Subheading>
             <BlogList showDate posts={digestBlog.edges} />
           </Row>

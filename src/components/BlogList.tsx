@@ -70,7 +70,13 @@ const defaultProps: BlogListProps = {
   className: '',
 };
 
-const BlogList = ({ css, posts, showFeaturePhoto, showDate, hideExcerpt }) => {
+const BlogList = ({
+  css,
+  posts,
+  showFeaturePhoto,
+  showDate,
+  hideExcerpt,
+}: BlogListProps) => {
   const postList = [];
   posts.forEach((postEdge) => {
     postList.push({

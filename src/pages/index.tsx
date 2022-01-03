@@ -10,6 +10,7 @@ import { Subheading } from '@/components/common/TextStyles';
 import BlogList from '@/components/BlogList';
 import config from '../../static/SiteConfig';
 import SEO from '../components/common/SEO';
+import Products from '@/components/Products';
 
 type Props = {
   data: {
@@ -67,11 +68,15 @@ const Landing = ({ data }: Props) => {
         <Row>
           <BlogList posts={blog.edges} showFeaturePhoto showDate />
         </Row>
+
+        <Products />
+
         <Row>
           <Block css={{ gridColumn: 'span 3', '@md': { display: 'none' } }}>
             <Subheading>Categories</Subheading>
             <CategoryList categories={category.edges} />
           </Block>
+
           <AppListWrapper>
             <AppList posts={app.edges} category />
           </AppListWrapper>

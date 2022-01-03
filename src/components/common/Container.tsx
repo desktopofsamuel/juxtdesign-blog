@@ -26,7 +26,7 @@ const Wrapper = styled('main', {
 
 type ContainerProps = {
   size?: 'small' | 'medium' | 'large';
-  css: string;
+  css?: string;
 };
 
 const defaultProps: ContainerProps = {

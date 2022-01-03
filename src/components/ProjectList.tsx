@@ -19,6 +19,7 @@ type ProjectType = {
   description: string;
   url: string;
   image: string;
+  background: string;
 };
 
 const ProjectList = ({ data }: any) => {

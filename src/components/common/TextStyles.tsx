@@ -25,6 +25,18 @@ export const ResourceTitle = styled('h2', {
   },
 });
 
+export const ProjectTitle = styled('h2', {
+  margin: '0',
+  fontSize: '$6',
+  fontFamily: 'Syne',
+  textTransform: 'uppercase',
+  color: '$white100',
+
+  '@md': {
+    fontSize: '$4',
+  },
+});
+
 export const ResourceType = styled('h3', {
   margin: '0',
   fontSize: '$3',

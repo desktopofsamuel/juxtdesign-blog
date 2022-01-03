@@ -91,6 +91,13 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`syne:800`],
+        display: 'swap',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: 'GTM-KMZKK6Q',

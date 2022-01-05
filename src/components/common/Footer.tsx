@@ -84,8 +84,8 @@ const Footer: React.FC = () => (
           </Wrapper>
           <Wrapper>
             <Title>Get In Touch</Title>
-            <Link target="_blank" to="mailto:juxtdesignco@gmail.com">
-              juxtdesignco@gmail.com
+            <Link target="_blank" to="mailto:hello@juxtdesign.cc">
+              hello@juxtdesign.cc
             </Link>
           </Wrapper>
         </FooterRight>
